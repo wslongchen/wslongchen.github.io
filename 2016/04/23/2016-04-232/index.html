@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>2016-04-23 | 小安安</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="梦想php服务端设计&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;为了自己的一个情怀app，然后重拾php。然后在dash里面扫了扫它的大概。然后不得不吐槽一句“php大法好”。
+前期的数据库设计一开始的设计是这样的，原本想弄一个用户表，内容表，以及内容表的附鼠标，再加上附带的评论表。
+主表:dream_wordcircleID int auto_incrementwordcircle_auth">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2016-04-23">
+<meta property="og:url" content="http://yoursite.com/2016/04/23/2016-04-232/index.html">
+<meta property="og:site_name" content="小安安">
+<meta property="og:description" content="梦想php服务端设计&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;为了自己的一个情怀app，然后重拾php。然后在dash里面扫了扫它的大概。然后不得不吐槽一句“php大法好”。
+前期的数据库设计一开始的设计是这样的，原本想弄一个用户表，内容表，以及内容表的附鼠标，再加上附带的评论表。
+主表:dream_wordcircleID int auto_incrementwordcircle_auth">
+<meta property="og:updated_time" content="2016-04-23T10:54:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2016-04-23">
+<meta name="twitter:description" content="梦想php服务端设计&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;为了自己的一个情怀app，然后重拾php。然后在dash里面扫了扫它的大概。然后不得不吐槽一句“php大法好”。
+前期的数据库设计一开始的设计是这样的，原本想弄一个用户表，内容表，以及内容表的附鼠标，再加上附带的评论表。
+主表:dream_wordcircleID int auto_incrementwordcircle_auth">
+  
+    <link rel="alternate" href="/atom.xml" title="小安安" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小安安</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016-04-232" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/23/2016-04-232/" class="article-date">
+  <time datetime="2016-04-23T09:44:52.000Z" itemprop="datePublished">2016-04-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2016-04-23
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="梦想php服务端设计"><a href="#梦想php服务端设计" class="headerlink" title="梦想php服务端设计"></a>梦想php服务端设计</h3><p></p><p><br>&nbsp;&nbsp;&nbsp;&nbsp;为了自己的一个情怀app，然后重拾php。然后在dash里面扫了扫它的大概。然后不得不吐槽一句“php大法好”。<br></p><p></p>
+<h5 id="前期的数据库设计"><a href="#前期的数据库设计" class="headerlink" title="前期的数据库设计"></a>前期的数据库设计</h5><p>一开始的设计是这样的，原本想弄一个用户表，内容表，以及内容表的附鼠标，再加上附带的评论表。</p>
+<p><pre><br>主表:dream_wordcircle<br><code><br>ID int auto_increment<br>wordcircle_author int<br>wordcircle_date datetime<br>wordcircle_content longtext<br>wordcircle_titile text<br>wordcircle_status varchar(20)<br>wordcircle_password varchar(20)<br>wordcircle_guid varchar(255)<br>wordcircle_type int<br>wordcircle_comment_status varchar(20)<br>wordcircle_comment_count int<br></code><br>主表附属表：dream_wordcircle_data<br><code><br>ID int auto<br>img …<br>area …<br>love_name …<br></code><br>用户表:dream_users<br><code><br>ID int auto_increment<br>user_login varchar(60)<br>user_pass varchar(64)<br>user_nickname varchar(50)<br>user_email varchar(100)<br>user_url varchar(100)<br>user_registered datetime<br>user_activation_key varchar(60)<br>user_status int<br>user_display_name varchar(250)<br></code><br>评论表：dream_comments<br><code><br>comment_ID int<br>comment_wordcircle_ID int<br>comment_author int<br>comment_date<br></code><br></pre><br>后来发现其实自己脑袋抽风了。想模仿wordpress的数据库，于是又改成了<br>这样：</p>
+<p><pre><br><code><br>CREATE TABLE IF NOT EXISTS dream_posts (<br>                ID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,<br>                post_author INT(11) NOT NULL,<br>                post_date DATETIME NOT NULL,<br>                post_content LONGTEXT NOT NULL,<br>                post_titile text NOT NULL,<br>                post_imgs varchar(255),<br>                post_status VARCHAR(20) NOT NULL,<br>                post_password VARCHAR(20) NOT NULL,<br>                post_guid VARCHAR(255),<br>                post_type INT(11) NOT NULL,<br>                post_comment_status VARCHAR(20) NOT NULL,<br>                post_comment_count INT(11)<br>                );<br>                CREATE TABLE IF NOT EXISTS dream_posts_meta(<br>                dpmeta_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,<br>                post_id INT(11),<br>                meta_key varchar(255),<br>                meta_value longtext);<br>                CREATE TABLE IF NOT EXISTS dream_users (<br>                ID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,<br>                user_login varchar(60) NOT NULL,<br>                user_pass varchar(64) NOT NULL,<br>                user_nickname varchar(50) NOT NULL,<br>                user_img varchar(100),<br>                user_phone varchar(100) NOT NULL,<br>                user_email varchar(100) NOT NULL,<br>                user_url VARCHAR(100),<br>                user_registered datetime NOT NULL,<br>                user_activation_key varchar(60),<br>                user_status INT(11) NOT NULL,<br>                user_display_name varchar(250)<br>                )<br>                CREATE TABLE IF NOT EXISTS dream_users_meta(<br>                dumeta_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,<br>                user_id INT(6) NOT NULL,<br>                meta_key varchar(255) NOT NULL,<br>                meta_value longtext NOT NULL<br>                )<br>                CREATE TABLE IF NOT EXISTS dream_feedback(<br>                id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,<br>                time varchar(200) NOT NULL,<br>                content varchar(500) NOT NULL,<br>                name varchar(20) DEFAULT NULL,<br>                contact varchar(20) DEFAULT NULL<br>                )<br></code><br></pre><br>这是最后的sql语句，差不多也能完成基本的功能了。</p>
+<p>More info: <a href="http://mrpann.com" target="_blank" rel="external">mrpan</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/23/2016-04-232/" data-id="cind13hef0001d63iwa9nh54b" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/梦想-android-php/">梦想,android,php</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/23/2016-04-23/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2016-04-23
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/梦想-android-php/">梦想,android,php</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/梦想-android-php/" style="font-size: 10px;">梦想,android,php</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/04/23/2016-04-23/">2016-04-23</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/23/2016-04-232/">2016-04-23</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 潘安<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
