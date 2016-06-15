@@ -20,7 +20,7 @@
 <meta property="og:description" content="&amp;#x5B89;&amp;#x5353;&amp;#x56FE;&amp;#x7247;&amp;#x9AD8;&amp;#x65AF;&amp;#x6A21;&amp;#x7CCA;(&amp;#x901A;&amp;#x8FC7;jni&amp;#x65B9;&amp;#x5F0F;&amp;#x5B9E;&amp;#x73B0;)&amp;#x201D;
 &amp;#x5728;&amp;#x5B9E;&amp;#x9645;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x5F88;&amp;#x591A;&amp;#x5730;&amp;#">
 <meta property="og:image" content="http://blog.mrpann.com/2016/06/15/安卓图片高斯模糊-通过jni方式实现/demo.jpg">
-<meta property="og:updated_time" content="2016-06-15T13:15:57.000Z">
+<meta property="og:updated_time" content="2016-06-15T13:18:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安卓图片高斯模糊(通过jni方式实现)">
 <meta name="twitter:description" content="&amp;#x5B89;&amp;#x5353;&amp;#x56FE;&amp;#x7247;&amp;#x9AD8;&amp;#x65AF;&amp;#x6A21;&amp;#x7CCA;(&amp;#x901A;&amp;#x8FC7;jni&amp;#x65B9;&amp;#x5F0F;&amp;#x5B9E;&amp;#x73B0;)&amp;#x201D;
@@ -53,7 +53,7 @@
 				<h1 class="site-name"><a href="/" title="小安安">小安安</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -69,7 +69,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:blog.mrpann.com">
 					</form>
 					
@@ -92,14 +92,14 @@
 		<a href="/about" title="潘安" target="_blank" itemprop="author">潘安</a>
 		
   <p class="article-time">
-    <time datetime="2016-06-15T08:07:16.000Z" itemprop="datePublished"> 发表于 2016-06-15</time>
+    <time datetime="2016-06-15T08:07:16.000Z" itemprop="datePublished"> Published 2016-06-15</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">Contents</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安卓图片高斯模糊-通过jni方式实现-”"><span class="toc-number">1.</span> <span class="toc-text">安卓图片高斯模糊(通过jni方式实现)”</span></a></li></ol>
 		
@@ -114,7 +114,7 @@
 <p>&#x63A5;&#x4E0B;&#x6765;&#x6267;&#x884C;android.mk&#x6587;&#x4EF6;&#xFF0C;&#x4EE5;&#x4FBF;&#x6211;&#x4EEC;&#x751F;&#x6210;.so&#x6587;&#x4EF6;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := $(call my-dir)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_MODULE    := myBlur</span><br><span class="line">LOCAL_SRC_FILES := myBlur.cpp</span><br><span class="line">LOCAL_LDLIBS += -lc -lm -llog</span><br><span class="line">include $(BUILD_SHARED_LIBRARY)</span><br></pre></td></tr></table></figure></p>
 <p>&#x70B9;&#x5F00;&#x7EC8;&#x7AEF;&#x6267;&#x884C;<code>ndk-build</code>&#x547D;&#x4EE4;&#x3002;<br>&#x5982;&#x82E5;&#x6CA1;&#x6709;&#x51FA;&#x9519;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x4F1A;&#x53D1;&#x73B0;&#x76EE;&#x5F55;&#x4E0B;&#x591A;&#x4E86;obj&#x4EE5;&#x53CA;libs&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x6253;&#x5F00;&#x5C31;&#x80FD;&#x770B;&#x5230;.so&#x6587;&#x4EF6;&#x4E86;&#x3002;<br>&#x5F53;&#x4E2D;&#x5982;&#x679C;&#x51FA;&#x9519;&#xFF0C;&#x63D0;&#x793A;c++&#x6E90;&#x6587;&#x4EF6;&#x4E2D;&#x7206;&#x7EA2;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x5728;jni&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#xFF0C;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;Application.mk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#APP_STL:=stlport_static</span><br><span class="line">APP_STL := gnustl_static</span><br><span class="line">APP_STL :=stlport_static</span><br></pre></td></tr></table></figure></p>
 <p>&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;navie&#x65B9;&#x6CD5;&#x4E0D;&#x7206;&#x7EA2;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x7684;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x80FD;&#x7F16;&#x5199;&#x76F8;&#x5E94;&#x7684;&#x6A21;&#x7CCA;&#x4EE3;&#x7801;&#x4E86;&#x3002;bitmaputils<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by mrpan on 16/6/15.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BitmapUtils</span> </span>{</span><br><span class="line">    <span class="comment">//&#x5206;&#x522B;&#x5728;x&#x8F74; &#x548C; y&#x8F74;&#x65B9;&#x5411;&#x4E0A;&#x8FDB;&#x884C;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Bitmap <span class="title">gaussBlur1</span><span class="params">(Bitmap bitmap, <span class="keyword">int</span> radius)</span></span><br><span class="line">    </span>{</span><br><span class="line">        <span class="keyword">int</span> w = bitmap.getWidth();</span><br><span class="line">        <span class="keyword">int</span> h = bitmap.getHeight();</span><br><span class="line">        <span class="comment">//&#x751F;&#x6210;&#x4E00;&#x5F20;&#x65B0;&#x7684;&#x56FE;&#x7247;</span></span><br><span class="line">        Bitmap outBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);</span><br><span class="line">        <span class="comment">//&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x6570;&#x7EC4;&#x5B58;&#x50A8;&#x539F;&#x59CB;&#x56FE;&#x7247;&#x7684;&#x50CF;&#x7D20; &#x503C;</span></span><br><span class="line">        <span class="keyword">int</span>[] pix = <span class="keyword">new</span> <span class="keyword">int</span>[w * h];</span><br><span class="line">        <span class="comment">//&#x5C06;&#x56FE;&#x7247;&#x50CF;&#x7D20;&#x503C;&#x5199;&#x5165;&#x6570;&#x7EC4;</span></span><br><span class="line">        bitmap.getPixels(pix, <span class="number">0</span>, w, <span class="number">0</span>, <span class="number">0</span>, w, h);</span><br><span class="line">        <span class="comment">//&#x8FDB;&#x884C;&#x6A21;&#x7CCA;</span></span><br><span class="line">        initCBlur1(pix, w, h, radius);</span><br><span class="line">        <span class="comment">//&#x5C06;&#x6570;&#x636E;&#x5199;&#x5165;&#x5230; &#x56FE;&#x7247;</span></span><br><span class="line">        outBitmap.setPixels(pix, <span class="number">0</span>, w, <span class="number">0</span>, <span class="number">0</span>, w, h);</span><br><span class="line">        <span class="comment">//&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</span></span><br><span class="line">        <span class="keyword">return</span> outBitmap;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x5229;&#x7528;&#x5747;&#x503C;&#x6A21;&#x7CCA; &#x903C;&#x8FD1; &#x9AD8;&#x65AF;&#x6A21;&#x7CCA;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Bitmap <span class="title">gaussBlur2</span><span class="params">(Bitmap bitmap, <span class="keyword">int</span> radius)</span></span><br><span class="line">    </span>{</span><br><span class="line">        <span class="keyword">int</span> w = bitmap.getWidth();</span><br><span class="line">        <span class="keyword">int</span> h = bitmap.getHeight();</span><br><span class="line">        <span class="comment">//&#x751F;&#x6210;&#x4E00;&#x5F20;&#x65B0;&#x7684;&#x56FE;&#x7247;</span></span><br><span class="line">        Bitmap outBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);</span><br><span class="line">        <span class="comment">//&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x6570;&#x7EC4;&#x5B58;&#x50A8;&#x539F;&#x59CB;&#x56FE;&#x7247;&#x7684;&#x50CF;&#x7D20; &#x503C;</span></span><br><span class="line">        <span class="keyword">int</span>[] pix = <span class="keyword">new</span> <span class="keyword">int</span>[w * h];</span><br><span class="line">        <span class="comment">//&#x5C06;&#x56FE;&#x7247;&#x50CF;&#x7D20;&#x503C;&#x5199;&#x5165;&#x6570;&#x7EC4;</span></span><br><span class="line">        bitmap.getPixels(pix, <span class="number">0</span>, w, <span class="number">0</span>, <span class="number">0</span>, w, h);</span><br><span class="line">        <span class="comment">//&#x8FDB;&#x884C;&#x6A21;&#x7CCA;</span></span><br><span class="line">        initCBlur2(pix, w, h, radius);</span><br><span class="line">        <span class="comment">//&#x5C06;&#x6570;&#x636E;&#x5199;&#x5165;&#x5230; &#x56FE;&#x7247;</span></span><br><span class="line">        outBitmap.setPixels(pix, <span class="number">0</span>, w, <span class="number">0</span>, <span class="number">0</span>, w, h);</span><br><span class="line">        <span class="comment">//&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</span></span><br><span class="line">        <span class="keyword">return</span> outBitmap;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x539F;&#x59CB;&#x7684;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA; &#x65B9;&#x6CD5;</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">initCBlur1</span><span class="params">(<span class="keyword">int</span>[] pix, <span class="keyword">int</span> w ,<span class="keyword">int</span> h, <span class="keyword">int</span> r)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x5229;&#x7528;&#x5747;&#x503C;&#x6A21;&#x7CCA;&#x8FDB;&#x884C;&#x62DF;&#x5408; &#x9AD8;&#x65AF;&#x6A21;&#x7CCA;</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">initCBlur2</span><span class="params">(<span class="keyword">int</span>[] pix, <span class="keyword">int</span> w ,<span class="keyword">int</span> h, <span class="keyword">int</span> r)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x52A0;&#x8F7D;native&#x6A21;&#x5757;</span></span><br><span class="line">    <span class="keyword">static</span></span><br><span class="line">    {</span><br><span class="line">        System.loadLibrary(<span class="string">&quot;myBlur&quot;</span>);</span><br><span class="line">    };</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
-<p>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x5927;&#x529F;&#x544A;&#x6210;&#x4E86;&#x3002;&#x8BB0;&#x5F97;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x538B;&#x7F29;&#x51E0;&#x904D;&#x56FE;&#x7247;&#xFF0C;&#x4E0D;&#x7136;&#x8FD8;&#x662F;&#x4F1A;&#x51FA;&#x73B0;anr&#x7684;&#x1F602;&#x3002;<br><img src="/2016/06/15/&#x5B89;&#x5353;&#x56FE;&#x7247;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA;-&#x901A;&#x8FC7;jni&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;/demo.jpg" alt="&#x793A;&#x4F8B;"></p>
+<p>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x5927;&#x529F;&#x544A;&#x6210;&#x4E86;&#x3002;&#x8BB0;&#x5F97;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x538B;&#x7F29;&#x51E0;&#x904D;&#x56FE;&#x7247;&#xFF0C;&#x4E0D;&#x7136;&#x8FD8;&#x662F;&#x4F1A;&#x51FA;&#x73B0;anr&#x7684;&#x1F602;&#x3002;<br>&#x9644;&#x4E0A;&#x4EE3;&#x7801;<a href="https://github.com/wslongchen/BlurSimple" target="_blank" rel="external">https://github.com/wslongchen/BlurSimple</a><br><img src="/2016/06/15/&#x5B89;&#x5353;&#x56FE;&#x7247;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA;-&#x901A;&#x8FC7;jni&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;/demo.jpg" alt="&#x793A;&#x4F8B;"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -154,22 +154,22 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">Contents</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安卓图片高斯模糊-通过jni方式实现-”"><span class="toc-number">1.</span> <span class="toc-text">安卓图片高斯模糊(通过jni方式实现)”</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github 名片</p>
+<p class="asidetitle">Github Card</p>
 <div class="github-card" data-github="wslongchen" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -181,7 +181,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
 			
@@ -193,7 +193,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -209,11 +209,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
@@ -442,7 +442,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
