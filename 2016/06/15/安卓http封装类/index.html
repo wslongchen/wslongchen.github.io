@@ -1,17 +1,90 @@
+<!doctype html>
 
- <!DOCTYPE HTML>
-<html >
-<head>
-  <meta charset="UTF-8">
+
+
   
-    <title>安卓http封装类 | 小安安</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="潘安">
-    
 
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
     
-    <meta name="description" content="&amp;#x5B89;&amp;#x5353;http&amp;#x5C01;&amp;#x88C5;&amp;#x7C7B;123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828">
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="纯技术分享的博客。" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5B89;&amp;#x5353;http&amp;#x5C01;&amp;#x88C5;&amp;#x7C7B;123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安卓http封装类">
 <meta property="og:url" content="http://blog.mrpann.com/2016/06/15/安卓http封装类/index.html">
@@ -22,437 +95,624 @@
 <meta name="twitter:title" content="安卓http封装类">
 <meta name="twitter:description" content="&amp;#x5B89;&amp;#x5353;http&amp;#x5C01;&amp;#x88C5;&amp;#x7C7B;123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828">
 
-    
-    <link rel="alternative" href="/atom.xml" title="小安安" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 9174779,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://blog.mrpann.com/2016/06/15/安卓http封装类/"/>
+
+  <title> 安卓http封装类 | 小安安 </title>
 </head>
 
-  <body>
-    <header>
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小安安</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
       
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="小安安" title="小安安"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="小安安">小安安</a></h1>
-				<h2 class="blog-motto"></h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">主页</a></li>
-					
-						<li><a href="/archives">归档</a></li>
-					
-						<li><a href="/about">关于</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:blog.mrpann.com">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            Über
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Suche
+          </a>
+        </li>
+      
+    </ul>
   
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/06/15/安卓http封装类/" title="安卓http封装类" itemprop="url">安卓http封装类</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="潘安" target="_blank" itemprop="author">潘安</a>
-		
-  <p class="article-time">
-    <time datetime="2016-06-15T01:00:49.000Z" itemprop="datePublished"> 发表于 2016-06-15</time>
-    
-  </p>
-</header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安卓http封装类"><span class="toc-number">1.</span> <span class="toc-text">安卓http封装类</span></a></li></ol>
-		
-		</div>
-		
-		<h2 id="&#x5B89;&#x5353;http&#x5C01;&#x88C5;&#x7C7B;"><a href="#&#x5B89;&#x5353;http&#x5C01;&#x88C5;&#x7C7B;" class="headerlink" title="&#x5B89;&#x5353;http&#x5C01;&#x88C5;&#x7C7B;"></a>&#x5B89;&#x5353;http&#x5C01;&#x88C5;&#x7C7B;</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by mrpan on 15/12/3.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpHelper</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NULL_INPUTSTREAM = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> REQUEST_FAIL = -<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> URL_Exception = -<span class="number">3</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> IO_Exception = -<span class="number">4</span>;</span><br><span class="line">    <span class="comment">// &#x65E0;&#x7F51;&#x7EDC;&#x8BBF;&#x95EE;&#x6743;&#x9650;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> Con_Permission = -<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">&quot;HttpGetClient&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> HttpHelper mHttpGetClient = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ExecutorService threadPool = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BBE;&#x7F6E;</span></span><br><span class="line">    MySharePreference appPreference = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">HttpHelper</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> size = Runtime.getRuntime().availableProcessors();</span><br><span class="line">        threadPool = Executors.newFixedThreadPool(size);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != MyApplication.getInstance())</span><br><span class="line">            appPreference = <span class="keyword">new</span> MySharePreference(MyApplication.getInstance());</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> HttpHelper <span class="title">getInstance</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == mHttpGetClient) {</span><br><span class="line">            mHttpGetClient = <span class="keyword">new</span> HttpHelper();</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> mHttpGetClient;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">asyHttpGetRequest</span><span class="params">(String url, HttpResponseCallBack httpCallBack)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != appPreference) {</span><br><span class="line">            <span class="keyword">int</span> permission = appPreference.getInt(Config.TYPE_CONN, <span class="number">0</span>);</span><br><span class="line">            Network netUtils =<span class="keyword">new</span> Network(MyApplication.getInstance());</span><br><span class="line">            Network.NetWorkState state = netUtils.getConnectState();</span><br><span class="line">            <span class="keyword">if</span> (state.equals(Network.NetWorkState.MOBILE)) {</span><br><span class="line">                <span class="keyword">if</span> (permission == Config.TYPE_ALL) {</span><br><span class="line">                    threadPool.execute(getGetHttpThread(url, httpCallBack));</span><br><span class="line">                } <span class="keyword">else</span> <span class="keyword">if</span> (permission == Config.TYPE_WIFI) {</span><br><span class="line">                    httpCallBack.onFailure(<span class="number">0</span>, Con_Permission,</span><br><span class="line">                            <span class="string">&quot;&#x8BF7;&#x5728;&#x8BBE;&#x7F6E;&#x4E2D;&#x6253;&#x5F00;MOBILE&#x8FDE;&#x63A5; &quot;</span>);</span><br><span class="line">                    MyLog.i(TAG, <span class="string">&quot;&#x672A;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#xFF0C;&#x7528;&#x6237;&#x8BBE;&#x7F6E;&#x4E86;&#x7F51;&#x7EDC;&#x9650;&#x5236;&quot;</span>);</span><br><span class="line">                }</span><br><span class="line">                <span class="comment">// &#x672A;&#x77E5;&#x7F51;&#x7EDC;</span></span><br><span class="line">                <span class="keyword">else</span> {</span><br><span class="line">                    threadPool.execute(getGetHttpThread(url, httpCallBack));</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                threadPool.execute(getGetHttpThread(url, httpCallBack));</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            threadPool.execute(getGetHttpThread(url, httpCallBack));</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">asyHttpPostRequest</span><span class="params">(String url,Map&lt;String,String&gt; params,List&lt;String&gt; files, HttpResponseCallBack httpCallBack)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != appPreference) {</span><br><span class="line">            <span class="keyword">int</span> permission = appPreference.getInt(Config.TYPE_CONN, <span class="number">0</span>);</span><br><span class="line">            Network netUtils =<span class="keyword">new</span> Network(MyApplication.getInstance());</span><br><span class="line">            Network.NetWorkState state = netUtils.getConnectState();</span><br><span class="line">            <span class="keyword">if</span> (state.equals(Network.NetWorkState.MOBILE)) {</span><br><span class="line">                <span class="keyword">if</span> (permission == Config.TYPE_ALL) {</span><br><span class="line">                    threadPool.execute(getPostHttpThread(url, params,files, httpCallBack));</span><br><span class="line">                } <span class="keyword">else</span> <span class="keyword">if</span> (permission == Config.TYPE_WIFI) {</span><br><span class="line">                    httpCallBack.onFailure(<span class="number">0</span>, Con_Permission,</span><br><span class="line">                            <span class="string">&quot;&#x8BF7;&#x5728;&#x8BBE;&#x7F6E;&#x4E2D;&#x6253;&#x5F00;MOBILE&#x8FDE;&#x63A5; &quot;</span>);</span><br><span class="line">                    MyLog.i(TAG, <span class="string">&quot;&#x672A;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#xFF0C;&#x7528;&#x6237;&#x8BBE;&#x7F6E;&#x4E86;&#x7F51;&#x7EDC;&#x9650;&#x5236;&quot;</span>);</span><br><span class="line">                }</span><br><span class="line">                <span class="comment">// &#x672A;&#x77E5;&#x7F51;&#x7EDC;</span></span><br><span class="line">                <span class="keyword">else</span> {</span><br><span class="line">                    threadPool.execute(getPostHttpThread(url, params,files, httpCallBack));</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                threadPool.execute(getPostHttpThread(url,params, files, httpCallBack));</span><br><span class="line">            }</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            threadPool.execute(getPostHttpThread(url, params,files, httpCallBack));</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">asyHttpPostRequest</span><span class="params">(String url,List&lt;NameValuePair&gt; params, HttpResponseCallBack httpCallBack)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != appPreference) {</span><br><span class="line">            <span class="keyword">int</span> permission = appPreference.getInt(Config.TYPE_CONN, <span class="number">0</span>);</span><br><span class="line">            Network netUtils =<span class="keyword">new</span> Network(MyApplication.getInstance());</span><br><span class="line">            Network.NetWorkState state = netUtils.getConnectState();</span><br><span class="line">            <span class="keyword">if</span> (state.equals(Network.NetWorkState.MOBILE)) {</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (permission == Config.TYPE_ALL) {</span><br><span class="line">                    threadPool.execute(getPostHttpThread(url, params, httpCallBack));</span><br><span class="line">                } <span class="keyword">else</span> <span class="keyword">if</span> (permission == Config.TYPE_WIFI) {</span><br><span class="line">                    httpCallBack.onFailure(<span class="number">0</span>, Con_Permission,</span><br><span class="line">                            <span class="string">&quot;&#x8BF7;&#x5728;&#x8BBE;&#x7F6E;&#x4E2D;&#x6253;&#x5F00;MOBILE&#x8FDE;&#x63A5; &quot;</span>);</span><br><span class="line">                    MyLog.i(TAG, <span class="string">&quot;&#x672A;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#xFF0C;&#x7528;&#x6237;&#x8BBE;&#x7F6E;&#x4E86;&#x7F51;&#x7EDC;&#x9650;&#x5236;&quot;</span>);</span><br><span class="line">                }</span><br><span class="line">                <span class="comment">// &#x672A;&#x77E5;&#x7F51;&#x7EDC;</span></span><br><span class="line">                <span class="keyword">else</span> {</span><br><span class="line">                    threadPool.execute(getPostHttpThread(url, params, httpCallBack));</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                threadPool.execute(getPostHttpThread(url, params, httpCallBack));</span><br><span class="line">            }</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            threadPool.execute(getPostHttpThread(url, params, httpCallBack));</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Runnable <span class="title">getGetHttpThread</span><span class="params">(<span class="keyword">final</span> String urlStr,</span><br><span class="line">                                      <span class="keyword">final</span> HttpResponseCallBack httpCallBack)</span> </span>{</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Runnable() {</span><br><span class="line">            <span class="keyword">int</span> responseCode = -<span class="number">1</span>;</span><br><span class="line">            InputStream inputStream = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">            BufferedReader reader = <span class="keyword">null</span>;</span><br><span class="line">            HttpURLConnection conn = <span class="keyword">null</span>;</span><br><span class="line">            URL url = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    url = <span class="keyword">new</span> URL(urlStr);</span><br><span class="line">                    conn = (HttpURLConnection) url.openConnection();</span><br><span class="line">                    conn.setRequestMethod(<span class="string">&quot;GET&quot;</span>);</span><br><span class="line">                    conn.setConnectTimeout(<span class="number">30000</span>);</span><br><span class="line">                    conn.setReadTimeout(<span class="number">30000</span>);</span><br><span class="line">                    conn.setDoInput(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setDoOutput(<span class="keyword">false</span>);</span><br><span class="line">                    conn.setUseCaches(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setRequestProperty(<span class="string">&quot;User-agent&quot;</span>, <span class="string">&quot;Mozilla/5.0&quot;</span>);</span><br><span class="line">                    conn.setRequestProperty(<span class="string">&quot;Content-Type&quot;</span>,</span><br><span class="line">                            <span class="string">&quot;application/x-www-form-urlencoded&quot;</span>);</span><br><span class="line">                    conn.connect();</span><br><span class="line">                    <span class="comment">// outputStream = conn.getOutputStream();</span></span><br><span class="line">                    <span class="comment">// outputStream.write(params.toString().getBytes());</span></span><br><span class="line">                    responseCode = conn.getResponseCode();</span><br><span class="line">                    <span class="keyword">if</span> (responseCode == <span class="number">200</span>) {</span><br><span class="line">                        inputStream = conn.getInputStream();</span><br><span class="line">                        <span class="keyword">if</span> (<span class="keyword">null</span> != inputStream) {</span><br><span class="line">                            reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(</span><br><span class="line">                                    inputStream, <span class="string">&quot;utf-8&quot;</span>));</span><br><span class="line">                            StringBuilder strBuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">                            <span class="comment">// int i = 0;</span></span><br><span class="line">                            <span class="comment">// char[] buf = new char[1024];</span></span><br><span class="line">                            <span class="comment">// while ((i = reader.read(buf)) != -1) {</span></span><br><span class="line">                            <span class="comment">// strBuilder.append(buf, 0, i);</span></span><br><span class="line">                            <span class="comment">// }</span></span><br><span class="line"></span><br><span class="line">                            String line = <span class="keyword">null</span>;</span><br><span class="line">                            <span class="keyword">while</span> (<span class="keyword">null</span> != (line = reader.readLine()))</span><br><span class="line">                                strBuilder.append(line);</span><br><span class="line"></span><br><span class="line">                            httpCallBack.onSuccess(urlStr,</span><br><span class="line">                                    strBuilder.toString());</span><br><span class="line">                        } <span class="keyword">else</span> {</span><br><span class="line">                            httpCallBack.onFailure(responseCode,</span><br><span class="line">                                    NULL_INPUTSTREAM, <span class="string">&quot;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x5931;&#x8D25;&#xFF01;&quot;</span>);</span><br><span class="line">                            MyLog.i(TAG, <span class="string">&quot;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x5931;&#x8D25;&#xFF01;&quot;</span>);</span><br><span class="line">                        }</span><br><span class="line"></span><br><span class="line">                    } <span class="keyword">else</span> {</span><br><span class="line">                        httpCallBack.onFailure(responseCode, REQUEST_FAIL,</span><br><span class="line">                                <span class="string">&quot;&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#xFF01;&quot;</span>);</span><br><span class="line">                    }</span><br><span class="line"></span><br><span class="line">                } <span class="keyword">catch</span> (MalformedURLException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, URL_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, IO_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">finally</span> {</span><br><span class="line">                    <span class="keyword">try</span> {</span><br><span class="line">                        <span class="keyword">if</span> (<span class="keyword">null</span> != reader)</span><br><span class="line">                            reader.close();</span><br><span class="line">                    } <span class="keyword">catch</span> (IOException ex) {</span><br><span class="line">                        MyLog.i(TAG, ex.toString());</span><br><span class="line">                    }</span><br><span class="line">                    <span class="keyword">try</span> {</span><br><span class="line">                        <span class="keyword">if</span> (<span class="keyword">null</span> != inputStream)</span><br><span class="line">                            inputStream.close();</span><br><span class="line">                    } <span class="keyword">catch</span> (IOException ex) {</span><br><span class="line">                        MyLog.i(TAG, ex.toString());</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">null</span> != conn)</span><br><span class="line">                    conn.disconnect();</span><br><span class="line">            }</span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">private</span> Runnable <span class="title">getPostHttpThread</span><span class="params">(<span class="keyword">final</span> String adress_Http, <span class="keyword">final</span> String path, <span class="keyword">final</span> HttpResponseCallBack httpCallBack)</span></span>{</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Runnable() {</span><br><span class="line">            <span class="keyword">int</span> responseCode = -<span class="number">1</span>;</span><br><span class="line">            OutputStream outtStream = <span class="keyword">null</span>;</span><br><span class="line">            String returnLine = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            BufferedReader reader = <span class="keyword">null</span>;</span><br><span class="line">            HttpURLConnection conn = <span class="keyword">null</span>;</span><br><span class="line">            URL url = <span class="keyword">null</span>;</span><br><span class="line">            String end = <span class="string">&quot;\r\n&quot;</span>;</span><br><span class="line">            String twoHyphens = <span class="string">&quot;--&quot;</span>;</span><br><span class="line">            String boundary = <span class="string">&quot;******&quot;</span>;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    url= <span class="keyword">new</span> URL(adress_Http);</span><br><span class="line">                    conn = (HttpURLConnection) url.openConnection();</span><br><span class="line">                    conn.setDoOutput(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setDoInput(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setRequestMethod(<span class="string">&quot;POST&quot;</span>);</span><br><span class="line">                    conn.setUseCaches(<span class="keyword">false</span>);</span><br><span class="line">                    conn.setInstanceFollowRedirects(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setRequestProperty(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/json&quot;</span>);</span><br><span class="line">                    conn.setRequestProperty(<span class="string">&quot;Content-Type&quot;</span>,</span><br><span class="line">                            <span class="string">&quot;multipart/form-data;boundary=&quot;</span> + boundary);</span><br><span class="line">                    conn.connect();</span><br><span class="line">                    DataOutputStream out = <span class="keyword">new</span> DataOutputStream(conn</span><br><span class="line">                            .getOutputStream());</span><br><span class="line">                    out.writeBytes(twoHyphens + boundary + end);</span><br><span class="line">                    out.writeBytes(<span class="string">&quot;Content-Disposition: form-data; name=\&quot;uploadfile\&quot;; filename=\&quot;&quot;</span></span><br><span class="line">                            + path.substring(path.lastIndexOf(<span class="string">&quot;/&quot;</span>) + <span class="number">1</span>) + <span class="string">&quot;\&quot;&quot;</span> + end);</span><br><span class="line">                    out.writeBytes(end);</span><br><span class="line">                    FileInputStream fis = <span class="keyword">new</span> FileInputStream(path);</span><br><span class="line">                    <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">8192</span>]; <span class="comment">// 8k</span></span><br><span class="line">                    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">                    <span class="comment">// &#x8BFB;&#x53D6;&#x6587;&#x4EF6;</span></span><br><span class="line">                    <span class="keyword">while</span> ((count = fis.read(buffer)) != -<span class="number">1</span>) {</span><br><span class="line">                        out.write(buffer, <span class="number">0</span>, count);</span><br><span class="line">                    }</span><br><span class="line">                    fis.close();</span><br><span class="line">                    out.writeBytes(end);</span><br><span class="line">                    out.writeBytes(twoHyphens + boundary + twoHyphens + end);</span><br><span class="line">                    out.flush();</span><br><span class="line">                    responseCode=conn.getResponseCode();</span><br><span class="line">                    <span class="keyword">if</span> (responseCode == <span class="number">200</span>) {</span><br><span class="line">                        reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(conn.getInputStream(), <span class="string">&quot;utf-8&quot;</span>));</span><br><span class="line">                        String line = <span class="string">&quot;&quot;</span>;</span><br><span class="line">                        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) {</span><br><span class="line">                            <span class="comment">// line = new String(line.getBytes(), &quot;utf-8&quot;);</span></span><br><span class="line">                            returnLine += line;</span><br><span class="line">                        }</span><br><span class="line"></span><br><span class="line">                        httpCallBack.onSuccess(adress_Http,</span><br><span class="line">                                returnLine);</span><br><span class="line"></span><br><span class="line">                    } <span class="keyword">else</span> {</span><br><span class="line">                        httpCallBack.onFailure(responseCode, REQUEST_FAIL,</span><br><span class="line">                                <span class="string">&quot;&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#xFF01;&quot;</span>);</span><br><span class="line">                    }</span><br><span class="line"></span><br><span class="line">                } <span class="keyword">catch</span> (MalformedURLException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, URL_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, IO_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">finally</span> {</span><br><span class="line">                    <span class="keyword">try</span> {</span><br><span class="line">                        <span class="keyword">if</span> (<span class="keyword">null</span> != reader)</span><br><span class="line">                            reader.close();</span><br><span class="line">                    } <span class="keyword">catch</span> (IOException ex) {</span><br><span class="line">                        MyLog.i(TAG, ex.toString());</span><br><span class="line">                    }</span><br><span class="line">                    <span class="keyword">try</span> {</span><br><span class="line">                        <span class="keyword">if</span> (<span class="keyword">null</span> != outtStream)</span><br><span class="line">                        {</span><br><span class="line">                            outtStream.flush();</span><br><span class="line">                            outtStream.close();</span><br><span class="line">                        }</span><br><span class="line">                    } <span class="keyword">catch</span> (IOException ex) {</span><br><span class="line">                        MyLog.i(TAG, ex.toString());</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">null</span> != conn)</span><br><span class="line">                    conn.disconnect();</span><br><span class="line">            }</span><br><span class="line">        };</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Runnable <span class="title">getPostHttpThread</span><span class="params">(<span class="keyword">final</span> String adress_Http, <span class="keyword">final</span> List&lt;NameValuePair&gt; params, <span class="keyword">final</span> HttpResponseCallBack httpCallBack)</span></span>{</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Runnable() {</span><br><span class="line">            <span class="keyword">int</span> responseCode = -<span class="number">1</span>;</span><br><span class="line">            URL url = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">                <span class="keyword">try</span>{</span><br><span class="line"></span><br><span class="line">                    HttpPost httpRequest =<span class="keyword">new</span> HttpPost(adress_Http);</span><br><span class="line">                    <span class="comment">//&#x53D1;&#x51FA;HTTP request</span></span><br><span class="line">                   <span class="comment">// HttpEntity s=;</span></span><br><span class="line">                    httpRequest.setEntity(<span class="keyword">new</span> UrlEncodedFormEntity(params, HTTP.UTF_8));</span><br><span class="line">                    httpRequest.setHeader(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/x-www-form-urlencoded; charset=utf-8&quot;</span>);</span><br><span class="line">                    <span class="comment">//&#x53D6;&#x5F97;HTTP response</span></span><br><span class="line">                    HttpResponse httpResponse=<span class="keyword">new</span> DefaultHttpClient().execute(httpRequest);</span><br><span class="line">                    <span class="comment">//&#x82E5;&#x72B6;&#x6001;&#x7801;&#x4E3A;200 ok</span></span><br><span class="line">                    <span class="keyword">if</span>(httpResponse.getStatusLine().getStatusCode()==<span class="number">200</span>){</span><br><span class="line">                        <span class="comment">//&#x53D6;&#x51FA;&#x56DE;&#x5E94;&#x5B57;&#x4E32;</span></span><br><span class="line">                        <span class="comment">//String strResult= EntityUtils.toString(httpResponse.getEntity());</span></span><br><span class="line">                        String strResult = EntityUtils.toString(httpResponse.getEntity(), <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line"></span><br><span class="line">                        httpCallBack.onSuccess(adress_Http,</span><br><span class="line">                                URLDecoder.decode(strResult, <span class="string">&quot;utf-8&quot;</span>));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    } <span class="keyword">else</span> {</span><br><span class="line">                        httpCallBack.onFailure(responseCode, REQUEST_FAIL,</span><br><span class="line">                                <span class="string">&quot;&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#xFF01;&quot;</span>);</span><br><span class="line">                    }</span><br><span class="line">                }<span class="keyword">catch</span>(ClientProtocolException e){</span><br><span class="line">                    httpCallBack.onFailure(responseCode, URL_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">catch</span> (UnsupportedEncodingException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, URL_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, IO_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        };</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Runnable <span class="title">getPostHttpThread</span><span class="params">(<span class="keyword">final</span> String adress_Http,<span class="keyword">final</span> Map&lt;String,String&gt; map, <span class="keyword">final</span> List&lt;String&gt; files, <span class="keyword">final</span> HttpResponseCallBack httpCallBack)</span></span>{</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Runnable() {</span><br><span class="line">            <span class="keyword">int</span> responseCode = -<span class="number">1</span>;</span><br><span class="line">            OutputStream outtStream = <span class="keyword">null</span>;</span><br><span class="line">            String returnLine = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            BufferedReader reader = <span class="keyword">null</span>;</span><br><span class="line">            HttpURLConnection conn = <span class="keyword">null</span>;</span><br><span class="line">            URL url = <span class="keyword">null</span>;</span><br><span class="line">            String end = <span class="string">&quot;\r\n&quot;</span>;</span><br><span class="line">            String twoHyphens = <span class="string">&quot;--&quot;</span>;</span><br><span class="line">            String boundary = <span class="string">&quot;******&quot;</span>;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    String dataStr=<span class="keyword">null</span>;</span><br><span class="line">                    <span class="keyword">if</span> (map != <span class="keyword">null</span> &amp;&amp; map.size() != <span class="number">0</span> &amp;&amp; !map.isEmpty()) {</span><br><span class="line">                        StringBuffer sb = <span class="keyword">new</span> StringBuffer( );</span><br><span class="line">                        <span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : map.entrySet()) {</span><br><span class="line">                            <span class="comment">// &#x5982;&#x679C;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x4E2D;&#x6709;&#x4E2D;&#x6587;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;URLEncoder&#x7F16;&#x7801; gbk/utf8</span></span><br><span class="line">                            sb.append(entry.getKey()).append(<span class="string">&quot;=&quot;</span>).append(URLEncoder.encode(entry.getValue(), <span class="string">&quot;utf-8&quot;</span>));</span><br><span class="line">                            sb.append(<span class="string">&quot;&amp;&quot;</span>);</span><br><span class="line">                        }</span><br><span class="line">                        sb.deleteCharAt(sb.length() - <span class="number">1</span>);</span><br><span class="line">                        dataStr=sb.toString();</span><br><span class="line">                    }</span><br><span class="line"></span><br><span class="line"><span class="comment">//                    if (map != null &amp;&amp; !map.isEmpty()) {</span></span><br><span class="line"><span class="comment">//                        StringBuffer sb = new StringBuffer( );</span></span><br><span class="line"><span class="comment">//                        for (Map.Entry&lt;String, String&gt; entry : map.entrySet())</span></span><br><span class="line"><span class="comment">//                            sb.append(&quot;&amp;&quot;).append(entry.getKey()).append(&quot;=&quot;).append(URLEncoder.encode(entry.getValue(), &quot;utf-8&quot;));</span></span><br><span class="line"><span class="comment">//                        dataStr=sb.toString().substring(1);</span></span><br><span class="line"><span class="comment">//                    }</span></span><br><span class="line">                    url= <span class="keyword">new</span> URL(adress_Http+<span class="string">&quot;&amp;&quot;</span>+dataStr);</span><br><span class="line">                    conn = (HttpURLConnection) url.openConnection();</span><br><span class="line">                    conn.setDoOutput(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setDoInput(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setRequestMethod(<span class="string">&quot;POST&quot;</span>);</span><br><span class="line">                    conn.setUseCaches(<span class="keyword">false</span>);</span><br><span class="line">                    conn.setInstanceFollowRedirects(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setRequestProperty(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/octet-stream&quot;</span>);</span><br><span class="line">                    conn.setRequestProperty(<span class="string">&quot;Content-Type&quot;</span>,</span><br><span class="line">                            <span class="string">&quot;multipart/form-data;boundary=&quot;</span> + boundary);</span><br><span class="line">                    <span class="comment">//conn.connect();</span></span><br><span class="line">                    DataOutputStream out = <span class="keyword">new</span> DataOutputStream(conn</span><br><span class="line">                            .getOutputStream());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;files.size();i++){</span><br><span class="line">                        String name=files.get(i);</span><br><span class="line">                        String path=name.substring(name.lastIndexOf(<span class="string">&quot;/&quot;</span>) + <span class="number">1</span>);</span><br><span class="line">                        out.writeBytes(twoHyphens + boundary + end);</span><br><span class="line">                        out.writeBytes(<span class="string">&quot;Content-Disposition: form-data; name=\&quot;file&quot;</span>+i+<span class="string">&quot;\&quot;; filename=\&quot;&quot;</span></span><br><span class="line">                                + path + <span class="string">&quot;\&quot;&quot;</span> + end);</span><br><span class="line">                        out.writeBytes(end);</span><br><span class="line">                        FileInputStream fis = <span class="keyword">new</span> FileInputStream(name);</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>]; <span class="comment">// 8k</span></span><br><span class="line">                        <span class="keyword">int</span> length = -<span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">while</span> ((length = fis.read(buffer)) != -<span class="number">1</span>) {</span><br><span class="line">                            out.write(buffer, <span class="number">0</span>, length);</span><br><span class="line">                        }</span><br><span class="line">                        out.writeBytes(end);</span><br><span class="line">                        fis.close();</span><br><span class="line"></span><br><span class="line">                    }</span><br><span class="line"></span><br><span class="line">                    out.writeBytes(twoHyphens + boundary + twoHyphens + end);</span><br><span class="line">                    out.flush();</span><br><span class="line">                    responseCode=conn.getResponseCode();</span><br><span class="line">                    <span class="keyword">if</span> (responseCode == <span class="number">200</span>) {</span><br><span class="line">                        reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(conn.getInputStream(), <span class="string">&quot;utf-8&quot;</span>));</span><br><span class="line">                        String line = <span class="string">&quot;&quot;</span>;</span><br><span class="line">                        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) {</span><br><span class="line">                            <span class="comment">// line = new String(line.getBytes(), &quot;utf-8&quot;);</span></span><br><span class="line">                            returnLine += line;</span><br><span class="line">                        }</span><br><span class="line"></span><br><span class="line">                        httpCallBack.onSuccess(adress_Http,</span><br><span class="line">                                returnLine);</span><br><span class="line"></span><br><span class="line">                    } <span class="keyword">else</span> {</span><br><span class="line">                        httpCallBack.onFailure(responseCode, REQUEST_FAIL,</span><br><span class="line">                                <span class="string">&quot;&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#xFF01;&quot;</span>);</span><br><span class="line">                    }</span><br><span class="line"></span><br><span class="line">                } <span class="keyword">catch</span> (MalformedURLException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, URL_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, IO_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">finally</span> {</span><br><span class="line">                    <span class="keyword">try</span> {</span><br><span class="line">                        <span class="keyword">if</span> (<span class="keyword">null</span> != reader)</span><br><span class="line">                            reader.close();</span><br><span class="line">                    } <span class="keyword">catch</span> (IOException ex) {</span><br><span class="line">                        MyLog.i(TAG, ex.toString());</span><br><span class="line">                    }</span><br><span class="line">                    <span class="keyword">try</span> {</span><br><span class="line">                        <span class="keyword">if</span> (<span class="keyword">null</span> != outtStream)</span><br><span class="line">                        {</span><br><span class="line">                            outtStream.flush();</span><br><span class="line">                            outtStream.close();</span><br><span class="line">                        }</span><br><span class="line">                    } <span class="keyword">catch</span> (IOException ex) {</span><br><span class="line">                        MyLog.i(TAG, ex.toString());</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">null</span> != conn)</span><br><span class="line">                    conn.disconnect();</span><br><span class="line">            }</span><br><span class="line">        };</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by mrpan on 15/12/4.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HttpResponseCallBack</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(String url, String result)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(<span class="keyword">int</span> httpResponseCode, <span class="keyword">int</span> errCode, String err)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#xFF1A;HttpHelper.getInstance().asyHttpGetRequest(url,HttpResponseCallBack);</p>
+
   
-	</div>
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
 </div>
 
 
-
-	<div class="article-share" id="share">
-	
-	  <div data-url="http://blog.mrpann.com/2016/06/15/安卓http封装类/" data-title="安卓http封装类 | 小安安" data-tsina="null" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>
-
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2016/06/15/安卓图片高斯模糊-通过jni方式实现/" title="安卓图片高斯模糊(通过jni方式实现)">
-  <strong>上一篇：</strong><br/>
-  <span>
-  安卓图片高斯模糊(通过jni方式实现)</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/2016/06/15/安卓的Fragment/"  title="安卓的Fragment ">
- <strong>下一篇：</strong><br/> 
- <span>安卓的Fragment 
-</span>
-</a>
-</div>
-
+    </div>
+  
 </nav>
 
-	
+ </div>
+    </header>
 
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安卓http封装类"><span class="toc-number">1.</span> <span class="toc-text">安卓http封装类</span></a></li></ol>
- 
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-<div class="github-card">
-<p class="asidetitle">Github 名片</p>
-<div class="github-card" data-github="wslongchen" data-width="220" data-height="119" data-theme="medium">
-<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
-</div>
-  </div>
-
-
-
-  
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/梦想-android-php/" title="梦想,android,php">梦想,android,php<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-        
-          <li>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
             
-            	<a href="http://mrpann.com" target="_blank" title="一个面向程序员交流分享的新一代社区">mrpan</a>
-            
-          </li>
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
         
-    </ul>
-</div>
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                安卓http封装类
+              
+            
+          </h1>
+        
 
-  
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T09:00:49+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
 
 
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
+    <div class="post-body" itemprop="articleBody">
 
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
-</div>
-
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> 大家好，我是小安安 <br/>
-			一枚成熟而又稳健的程序猿。</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		
-		<a href="https://github.com/wslongchen" target="_blank" class="icon-github" title="github"></a>
-		
-		
-		
-		
-		
-		
-		
-		<a href="http://www.zhihu.com/people/mrpann## e.g. jark  for http://www.zhihu.com/people/jark" target="_blank" class="icon-zhihu" title="知乎"></a>
-		
-		
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> 
-		
-		<a href="/about" target="_blank" title="潘安">潘安</a>
-		
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
       
-      $('#toc.toc-aside').css('display', 'none');
+      
+
+      
+        <h2 id="&#x5B89;&#x5353;http&#x5C01;&#x88C5;&#x7C7B;"><a href="#&#x5B89;&#x5353;http&#x5C01;&#x88C5;&#x7C7B;" class="headerlink" title="&#x5B89;&#x5353;http&#x5C01;&#x88C5;&#x7C7B;"></a>&#x5B89;&#x5353;http&#x5C01;&#x88C5;&#x7C7B;</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by mrpan on 15/12/3.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpHelper</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NULL_INPUTSTREAM = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> REQUEST_FAIL = -<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> URL_Exception = -<span class="number">3</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> IO_Exception = -<span class="number">4</span>;</span><br><span class="line">    <span class="comment">// &#x65E0;&#x7F51;&#x7EDC;&#x8BBF;&#x95EE;&#x6743;&#x9650;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> Con_Permission = -<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">&quot;HttpGetClient&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> HttpHelper mHttpGetClient = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ExecutorService threadPool = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BBE;&#x7F6E;</span></span><br><span class="line">    MySharePreference appPreference = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">HttpHelper</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> size = Runtime.getRuntime().availableProcessors();</span><br><span class="line">        threadPool = Executors.newFixedThreadPool(size);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != MyApplication.getInstance())</span><br><span class="line">            appPreference = <span class="keyword">new</span> MySharePreference(MyApplication.getInstance());</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> HttpHelper <span class="title">getInstance</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == mHttpGetClient) {</span><br><span class="line">            mHttpGetClient = <span class="keyword">new</span> HttpHelper();</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> mHttpGetClient;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">asyHttpGetRequest</span><span class="params">(String url, HttpResponseCallBack httpCallBack)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != appPreference) {</span><br><span class="line">            <span class="keyword">int</span> permission = appPreference.getInt(Config.TYPE_CONN, <span class="number">0</span>);</span><br><span class="line">            Network netUtils =<span class="keyword">new</span> Network(MyApplication.getInstance());</span><br><span class="line">            Network.NetWorkState state = netUtils.getConnectState();</span><br><span class="line">            <span class="keyword">if</span> (state.equals(Network.NetWorkState.MOBILE)) {</span><br><span class="line">                <span class="keyword">if</span> (permission == Config.TYPE_ALL) {</span><br><span class="line">                    threadPool.execute(getGetHttpThread(url, httpCallBack));</span><br><span class="line">                } <span class="keyword">else</span> <span class="keyword">if</span> (permission == Config.TYPE_WIFI) {</span><br><span class="line">                    httpCallBack.onFailure(<span class="number">0</span>, Con_Permission,</span><br><span class="line">                            <span class="string">&quot;&#x8BF7;&#x5728;&#x8BBE;&#x7F6E;&#x4E2D;&#x6253;&#x5F00;MOBILE&#x8FDE;&#x63A5; &quot;</span>);</span><br><span class="line">                    MyLog.i(TAG, <span class="string">&quot;&#x672A;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#xFF0C;&#x7528;&#x6237;&#x8BBE;&#x7F6E;&#x4E86;&#x7F51;&#x7EDC;&#x9650;&#x5236;&quot;</span>);</span><br><span class="line">                }</span><br><span class="line">                <span class="comment">// &#x672A;&#x77E5;&#x7F51;&#x7EDC;</span></span><br><span class="line">                <span class="keyword">else</span> {</span><br><span class="line">                    threadPool.execute(getGetHttpThread(url, httpCallBack));</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                threadPool.execute(getGetHttpThread(url, httpCallBack));</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            threadPool.execute(getGetHttpThread(url, httpCallBack));</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">asyHttpPostRequest</span><span class="params">(String url,Map&lt;String,String&gt; params,List&lt;String&gt; files, HttpResponseCallBack httpCallBack)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != appPreference) {</span><br><span class="line">            <span class="keyword">int</span> permission = appPreference.getInt(Config.TYPE_CONN, <span class="number">0</span>);</span><br><span class="line">            Network netUtils =<span class="keyword">new</span> Network(MyApplication.getInstance());</span><br><span class="line">            Network.NetWorkState state = netUtils.getConnectState();</span><br><span class="line">            <span class="keyword">if</span> (state.equals(Network.NetWorkState.MOBILE)) {</span><br><span class="line">                <span class="keyword">if</span> (permission == Config.TYPE_ALL) {</span><br><span class="line">                    threadPool.execute(getPostHttpThread(url, params,files, httpCallBack));</span><br><span class="line">                } <span class="keyword">else</span> <span class="keyword">if</span> (permission == Config.TYPE_WIFI) {</span><br><span class="line">                    httpCallBack.onFailure(<span class="number">0</span>, Con_Permission,</span><br><span class="line">                            <span class="string">&quot;&#x8BF7;&#x5728;&#x8BBE;&#x7F6E;&#x4E2D;&#x6253;&#x5F00;MOBILE&#x8FDE;&#x63A5; &quot;</span>);</span><br><span class="line">                    MyLog.i(TAG, <span class="string">&quot;&#x672A;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#xFF0C;&#x7528;&#x6237;&#x8BBE;&#x7F6E;&#x4E86;&#x7F51;&#x7EDC;&#x9650;&#x5236;&quot;</span>);</span><br><span class="line">                }</span><br><span class="line">                <span class="comment">// &#x672A;&#x77E5;&#x7F51;&#x7EDC;</span></span><br><span class="line">                <span class="keyword">else</span> {</span><br><span class="line">                    threadPool.execute(getPostHttpThread(url, params,files, httpCallBack));</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                threadPool.execute(getPostHttpThread(url,params, files, httpCallBack));</span><br><span class="line">            }</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            threadPool.execute(getPostHttpThread(url, params,files, httpCallBack));</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">asyHttpPostRequest</span><span class="params">(String url,List&lt;NameValuePair&gt; params, HttpResponseCallBack httpCallBack)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != appPreference) {</span><br><span class="line">            <span class="keyword">int</span> permission = appPreference.getInt(Config.TYPE_CONN, <span class="number">0</span>);</span><br><span class="line">            Network netUtils =<span class="keyword">new</span> Network(MyApplication.getInstance());</span><br><span class="line">            Network.NetWorkState state = netUtils.getConnectState();</span><br><span class="line">            <span class="keyword">if</span> (state.equals(Network.NetWorkState.MOBILE)) {</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (permission == Config.TYPE_ALL) {</span><br><span class="line">                    threadPool.execute(getPostHttpThread(url, params, httpCallBack));</span><br><span class="line">                } <span class="keyword">else</span> <span class="keyword">if</span> (permission == Config.TYPE_WIFI) {</span><br><span class="line">                    httpCallBack.onFailure(<span class="number">0</span>, Con_Permission,</span><br><span class="line">                            <span class="string">&quot;&#x8BF7;&#x5728;&#x8BBE;&#x7F6E;&#x4E2D;&#x6253;&#x5F00;MOBILE&#x8FDE;&#x63A5; &quot;</span>);</span><br><span class="line">                    MyLog.i(TAG, <span class="string">&quot;&#x672A;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#xFF0C;&#x7528;&#x6237;&#x8BBE;&#x7F6E;&#x4E86;&#x7F51;&#x7EDC;&#x9650;&#x5236;&quot;</span>);</span><br><span class="line">                }</span><br><span class="line">                <span class="comment">// &#x672A;&#x77E5;&#x7F51;&#x7EDC;</span></span><br><span class="line">                <span class="keyword">else</span> {</span><br><span class="line">                    threadPool.execute(getPostHttpThread(url, params, httpCallBack));</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                threadPool.execute(getPostHttpThread(url, params, httpCallBack));</span><br><span class="line">            }</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            threadPool.execute(getPostHttpThread(url, params, httpCallBack));</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Runnable <span class="title">getGetHttpThread</span><span class="params">(<span class="keyword">final</span> String urlStr,</span><br><span class="line">                                      <span class="keyword">final</span> HttpResponseCallBack httpCallBack)</span> </span>{</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Runnable() {</span><br><span class="line">            <span class="keyword">int</span> responseCode = -<span class="number">1</span>;</span><br><span class="line">            InputStream inputStream = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">            BufferedReader reader = <span class="keyword">null</span>;</span><br><span class="line">            HttpURLConnection conn = <span class="keyword">null</span>;</span><br><span class="line">            URL url = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    url = <span class="keyword">new</span> URL(urlStr);</span><br><span class="line">                    conn = (HttpURLConnection) url.openConnection();</span><br><span class="line">                    conn.setRequestMethod(<span class="string">&quot;GET&quot;</span>);</span><br><span class="line">                    conn.setConnectTimeout(<span class="number">30000</span>);</span><br><span class="line">                    conn.setReadTimeout(<span class="number">30000</span>);</span><br><span class="line">                    conn.setDoInput(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setDoOutput(<span class="keyword">false</span>);</span><br><span class="line">                    conn.setUseCaches(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setRequestProperty(<span class="string">&quot;User-agent&quot;</span>, <span class="string">&quot;Mozilla/5.0&quot;</span>);</span><br><span class="line">                    conn.setRequestProperty(<span class="string">&quot;Content-Type&quot;</span>,</span><br><span class="line">                            <span class="string">&quot;application/x-www-form-urlencoded&quot;</span>);</span><br><span class="line">                    conn.connect();</span><br><span class="line">                    <span class="comment">// outputStream = conn.getOutputStream();</span></span><br><span class="line">                    <span class="comment">// outputStream.write(params.toString().getBytes());</span></span><br><span class="line">                    responseCode = conn.getResponseCode();</span><br><span class="line">                    <span class="keyword">if</span> (responseCode == <span class="number">200</span>) {</span><br><span class="line">                        inputStream = conn.getInputStream();</span><br><span class="line">                        <span class="keyword">if</span> (<span class="keyword">null</span> != inputStream) {</span><br><span class="line">                            reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(</span><br><span class="line">                                    inputStream, <span class="string">&quot;utf-8&quot;</span>));</span><br><span class="line">                            StringBuilder strBuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">                            <span class="comment">// int i = 0;</span></span><br><span class="line">                            <span class="comment">// char[] buf = new char[1024];</span></span><br><span class="line">                            <span class="comment">// while ((i = reader.read(buf)) != -1) {</span></span><br><span class="line">                            <span class="comment">// strBuilder.append(buf, 0, i);</span></span><br><span class="line">                            <span class="comment">// }</span></span><br><span class="line"></span><br><span class="line">                            String line = <span class="keyword">null</span>;</span><br><span class="line">                            <span class="keyword">while</span> (<span class="keyword">null</span> != (line = reader.readLine()))</span><br><span class="line">                                strBuilder.append(line);</span><br><span class="line"></span><br><span class="line">                            httpCallBack.onSuccess(urlStr,</span><br><span class="line">                                    strBuilder.toString());</span><br><span class="line">                        } <span class="keyword">else</span> {</span><br><span class="line">                            httpCallBack.onFailure(responseCode,</span><br><span class="line">                                    NULL_INPUTSTREAM, <span class="string">&quot;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x5931;&#x8D25;&#xFF01;&quot;</span>);</span><br><span class="line">                            MyLog.i(TAG, <span class="string">&quot;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x5931;&#x8D25;&#xFF01;&quot;</span>);</span><br><span class="line">                        }</span><br><span class="line"></span><br><span class="line">                    } <span class="keyword">else</span> {</span><br><span class="line">                        httpCallBack.onFailure(responseCode, REQUEST_FAIL,</span><br><span class="line">                                <span class="string">&quot;&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#xFF01;&quot;</span>);</span><br><span class="line">                    }</span><br><span class="line"></span><br><span class="line">                } <span class="keyword">catch</span> (MalformedURLException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, URL_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, IO_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">finally</span> {</span><br><span class="line">                    <span class="keyword">try</span> {</span><br><span class="line">                        <span class="keyword">if</span> (<span class="keyword">null</span> != reader)</span><br><span class="line">                            reader.close();</span><br><span class="line">                    } <span class="keyword">catch</span> (IOException ex) {</span><br><span class="line">                        MyLog.i(TAG, ex.toString());</span><br><span class="line">                    }</span><br><span class="line">                    <span class="keyword">try</span> {</span><br><span class="line">                        <span class="keyword">if</span> (<span class="keyword">null</span> != inputStream)</span><br><span class="line">                            inputStream.close();</span><br><span class="line">                    } <span class="keyword">catch</span> (IOException ex) {</span><br><span class="line">                        MyLog.i(TAG, ex.toString());</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">null</span> != conn)</span><br><span class="line">                    conn.disconnect();</span><br><span class="line">            }</span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">private</span> Runnable <span class="title">getPostHttpThread</span><span class="params">(<span class="keyword">final</span> String adress_Http, <span class="keyword">final</span> String path, <span class="keyword">final</span> HttpResponseCallBack httpCallBack)</span></span>{</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Runnable() {</span><br><span class="line">            <span class="keyword">int</span> responseCode = -<span class="number">1</span>;</span><br><span class="line">            OutputStream outtStream = <span class="keyword">null</span>;</span><br><span class="line">            String returnLine = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            BufferedReader reader = <span class="keyword">null</span>;</span><br><span class="line">            HttpURLConnection conn = <span class="keyword">null</span>;</span><br><span class="line">            URL url = <span class="keyword">null</span>;</span><br><span class="line">            String end = <span class="string">&quot;\r\n&quot;</span>;</span><br><span class="line">            String twoHyphens = <span class="string">&quot;--&quot;</span>;</span><br><span class="line">            String boundary = <span class="string">&quot;******&quot;</span>;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    url= <span class="keyword">new</span> URL(adress_Http);</span><br><span class="line">                    conn = (HttpURLConnection) url.openConnection();</span><br><span class="line">                    conn.setDoOutput(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setDoInput(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setRequestMethod(<span class="string">&quot;POST&quot;</span>);</span><br><span class="line">                    conn.setUseCaches(<span class="keyword">false</span>);</span><br><span class="line">                    conn.setInstanceFollowRedirects(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setRequestProperty(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/json&quot;</span>);</span><br><span class="line">                    conn.setRequestProperty(<span class="string">&quot;Content-Type&quot;</span>,</span><br><span class="line">                            <span class="string">&quot;multipart/form-data;boundary=&quot;</span> + boundary);</span><br><span class="line">                    conn.connect();</span><br><span class="line">                    DataOutputStream out = <span class="keyword">new</span> DataOutputStream(conn</span><br><span class="line">                            .getOutputStream());</span><br><span class="line">                    out.writeBytes(twoHyphens + boundary + end);</span><br><span class="line">                    out.writeBytes(<span class="string">&quot;Content-Disposition: form-data; name=\&quot;uploadfile\&quot;; filename=\&quot;&quot;</span></span><br><span class="line">                            + path.substring(path.lastIndexOf(<span class="string">&quot;/&quot;</span>) + <span class="number">1</span>) + <span class="string">&quot;\&quot;&quot;</span> + end);</span><br><span class="line">                    out.writeBytes(end);</span><br><span class="line">                    FileInputStream fis = <span class="keyword">new</span> FileInputStream(path);</span><br><span class="line">                    <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">8192</span>]; <span class="comment">// 8k</span></span><br><span class="line">                    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">                    <span class="comment">// &#x8BFB;&#x53D6;&#x6587;&#x4EF6;</span></span><br><span class="line">                    <span class="keyword">while</span> ((count = fis.read(buffer)) != -<span class="number">1</span>) {</span><br><span class="line">                        out.write(buffer, <span class="number">0</span>, count);</span><br><span class="line">                    }</span><br><span class="line">                    fis.close();</span><br><span class="line">                    out.writeBytes(end);</span><br><span class="line">                    out.writeBytes(twoHyphens + boundary + twoHyphens + end);</span><br><span class="line">                    out.flush();</span><br><span class="line">                    responseCode=conn.getResponseCode();</span><br><span class="line">                    <span class="keyword">if</span> (responseCode == <span class="number">200</span>) {</span><br><span class="line">                        reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(conn.getInputStream(), <span class="string">&quot;utf-8&quot;</span>));</span><br><span class="line">                        String line = <span class="string">&quot;&quot;</span>;</span><br><span class="line">                        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) {</span><br><span class="line">                            <span class="comment">// line = new String(line.getBytes(), &quot;utf-8&quot;);</span></span><br><span class="line">                            returnLine += line;</span><br><span class="line">                        }</span><br><span class="line"></span><br><span class="line">                        httpCallBack.onSuccess(adress_Http,</span><br><span class="line">                                returnLine);</span><br><span class="line"></span><br><span class="line">                    } <span class="keyword">else</span> {</span><br><span class="line">                        httpCallBack.onFailure(responseCode, REQUEST_FAIL,</span><br><span class="line">                                <span class="string">&quot;&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#xFF01;&quot;</span>);</span><br><span class="line">                    }</span><br><span class="line"></span><br><span class="line">                } <span class="keyword">catch</span> (MalformedURLException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, URL_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, IO_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">finally</span> {</span><br><span class="line">                    <span class="keyword">try</span> {</span><br><span class="line">                        <span class="keyword">if</span> (<span class="keyword">null</span> != reader)</span><br><span class="line">                            reader.close();</span><br><span class="line">                    } <span class="keyword">catch</span> (IOException ex) {</span><br><span class="line">                        MyLog.i(TAG, ex.toString());</span><br><span class="line">                    }</span><br><span class="line">                    <span class="keyword">try</span> {</span><br><span class="line">                        <span class="keyword">if</span> (<span class="keyword">null</span> != outtStream)</span><br><span class="line">                        {</span><br><span class="line">                            outtStream.flush();</span><br><span class="line">                            outtStream.close();</span><br><span class="line">                        }</span><br><span class="line">                    } <span class="keyword">catch</span> (IOException ex) {</span><br><span class="line">                        MyLog.i(TAG, ex.toString());</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">null</span> != conn)</span><br><span class="line">                    conn.disconnect();</span><br><span class="line">            }</span><br><span class="line">        };</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Runnable <span class="title">getPostHttpThread</span><span class="params">(<span class="keyword">final</span> String adress_Http, <span class="keyword">final</span> List&lt;NameValuePair&gt; params, <span class="keyword">final</span> HttpResponseCallBack httpCallBack)</span></span>{</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Runnable() {</span><br><span class="line">            <span class="keyword">int</span> responseCode = -<span class="number">1</span>;</span><br><span class="line">            URL url = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">                <span class="keyword">try</span>{</span><br><span class="line"></span><br><span class="line">                    HttpPost httpRequest =<span class="keyword">new</span> HttpPost(adress_Http);</span><br><span class="line">                    <span class="comment">//&#x53D1;&#x51FA;HTTP request</span></span><br><span class="line">                   <span class="comment">// HttpEntity s=;</span></span><br><span class="line">                    httpRequest.setEntity(<span class="keyword">new</span> UrlEncodedFormEntity(params, HTTP.UTF_8));</span><br><span class="line">                    httpRequest.setHeader(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/x-www-form-urlencoded; charset=utf-8&quot;</span>);</span><br><span class="line">                    <span class="comment">//&#x53D6;&#x5F97;HTTP response</span></span><br><span class="line">                    HttpResponse httpResponse=<span class="keyword">new</span> DefaultHttpClient().execute(httpRequest);</span><br><span class="line">                    <span class="comment">//&#x82E5;&#x72B6;&#x6001;&#x7801;&#x4E3A;200 ok</span></span><br><span class="line">                    <span class="keyword">if</span>(httpResponse.getStatusLine().getStatusCode()==<span class="number">200</span>){</span><br><span class="line">                        <span class="comment">//&#x53D6;&#x51FA;&#x56DE;&#x5E94;&#x5B57;&#x4E32;</span></span><br><span class="line">                        <span class="comment">//String strResult= EntityUtils.toString(httpResponse.getEntity());</span></span><br><span class="line">                        String strResult = EntityUtils.toString(httpResponse.getEntity(), <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line"></span><br><span class="line">                        httpCallBack.onSuccess(adress_Http,</span><br><span class="line">                                URLDecoder.decode(strResult, <span class="string">&quot;utf-8&quot;</span>));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    } <span class="keyword">else</span> {</span><br><span class="line">                        httpCallBack.onFailure(responseCode, REQUEST_FAIL,</span><br><span class="line">                                <span class="string">&quot;&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#xFF01;&quot;</span>);</span><br><span class="line">                    }</span><br><span class="line">                }<span class="keyword">catch</span>(ClientProtocolException e){</span><br><span class="line">                    httpCallBack.onFailure(responseCode, URL_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">catch</span> (UnsupportedEncodingException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, URL_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, IO_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        };</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Runnable <span class="title">getPostHttpThread</span><span class="params">(<span class="keyword">final</span> String adress_Http,<span class="keyword">final</span> Map&lt;String,String&gt; map, <span class="keyword">final</span> List&lt;String&gt; files, <span class="keyword">final</span> HttpResponseCallBack httpCallBack)</span></span>{</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Runnable() {</span><br><span class="line">            <span class="keyword">int</span> responseCode = -<span class="number">1</span>;</span><br><span class="line">            OutputStream outtStream = <span class="keyword">null</span>;</span><br><span class="line">            String returnLine = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            BufferedReader reader = <span class="keyword">null</span>;</span><br><span class="line">            HttpURLConnection conn = <span class="keyword">null</span>;</span><br><span class="line">            URL url = <span class="keyword">null</span>;</span><br><span class="line">            String end = <span class="string">&quot;\r\n&quot;</span>;</span><br><span class="line">            String twoHyphens = <span class="string">&quot;--&quot;</span>;</span><br><span class="line">            String boundary = <span class="string">&quot;******&quot;</span>;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    String dataStr=<span class="keyword">null</span>;</span><br><span class="line">                    <span class="keyword">if</span> (map != <span class="keyword">null</span> &amp;&amp; map.size() != <span class="number">0</span> &amp;&amp; !map.isEmpty()) {</span><br><span class="line">                        StringBuffer sb = <span class="keyword">new</span> StringBuffer( );</span><br><span class="line">                        <span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : map.entrySet()) {</span><br><span class="line">                            <span class="comment">// &#x5982;&#x679C;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x4E2D;&#x6709;&#x4E2D;&#x6587;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;URLEncoder&#x7F16;&#x7801; gbk/utf8</span></span><br><span class="line">                            sb.append(entry.getKey()).append(<span class="string">&quot;=&quot;</span>).append(URLEncoder.encode(entry.getValue(), <span class="string">&quot;utf-8&quot;</span>));</span><br><span class="line">                            sb.append(<span class="string">&quot;&amp;&quot;</span>);</span><br><span class="line">                        }</span><br><span class="line">                        sb.deleteCharAt(sb.length() - <span class="number">1</span>);</span><br><span class="line">                        dataStr=sb.toString();</span><br><span class="line">                    }</span><br><span class="line"></span><br><span class="line"><span class="comment">//                    if (map != null &amp;&amp; !map.isEmpty()) {</span></span><br><span class="line"><span class="comment">//                        StringBuffer sb = new StringBuffer( );</span></span><br><span class="line"><span class="comment">//                        for (Map.Entry&lt;String, String&gt; entry : map.entrySet())</span></span><br><span class="line"><span class="comment">//                            sb.append(&quot;&amp;&quot;).append(entry.getKey()).append(&quot;=&quot;).append(URLEncoder.encode(entry.getValue(), &quot;utf-8&quot;));</span></span><br><span class="line"><span class="comment">//                        dataStr=sb.toString().substring(1);</span></span><br><span class="line"><span class="comment">//                    }</span></span><br><span class="line">                    url= <span class="keyword">new</span> URL(adress_Http+<span class="string">&quot;&amp;&quot;</span>+dataStr);</span><br><span class="line">                    conn = (HttpURLConnection) url.openConnection();</span><br><span class="line">                    conn.setDoOutput(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setDoInput(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setRequestMethod(<span class="string">&quot;POST&quot;</span>);</span><br><span class="line">                    conn.setUseCaches(<span class="keyword">false</span>);</span><br><span class="line">                    conn.setInstanceFollowRedirects(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setRequestProperty(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/octet-stream&quot;</span>);</span><br><span class="line">                    conn.setRequestProperty(<span class="string">&quot;Content-Type&quot;</span>,</span><br><span class="line">                            <span class="string">&quot;multipart/form-data;boundary=&quot;</span> + boundary);</span><br><span class="line">                    <span class="comment">//conn.connect();</span></span><br><span class="line">                    DataOutputStream out = <span class="keyword">new</span> DataOutputStream(conn</span><br><span class="line">                            .getOutputStream());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;files.size();i++){</span><br><span class="line">                        String name=files.get(i);</span><br><span class="line">                        String path=name.substring(name.lastIndexOf(<span class="string">&quot;/&quot;</span>) + <span class="number">1</span>);</span><br><span class="line">                        out.writeBytes(twoHyphens + boundary + end);</span><br><span class="line">                        out.writeBytes(<span class="string">&quot;Content-Disposition: form-data; name=\&quot;file&quot;</span>+i+<span class="string">&quot;\&quot;; filename=\&quot;&quot;</span></span><br><span class="line">                                + path + <span class="string">&quot;\&quot;&quot;</span> + end);</span><br><span class="line">                        out.writeBytes(end);</span><br><span class="line">                        FileInputStream fis = <span class="keyword">new</span> FileInputStream(name);</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>]; <span class="comment">// 8k</span></span><br><span class="line">                        <span class="keyword">int</span> length = -<span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">while</span> ((length = fis.read(buffer)) != -<span class="number">1</span>) {</span><br><span class="line">                            out.write(buffer, <span class="number">0</span>, length);</span><br><span class="line">                        }</span><br><span class="line">                        out.writeBytes(end);</span><br><span class="line">                        fis.close();</span><br><span class="line"></span><br><span class="line">                    }</span><br><span class="line"></span><br><span class="line">                    out.writeBytes(twoHyphens + boundary + twoHyphens + end);</span><br><span class="line">                    out.flush();</span><br><span class="line">                    responseCode=conn.getResponseCode();</span><br><span class="line">                    <span class="keyword">if</span> (responseCode == <span class="number">200</span>) {</span><br><span class="line">                        reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(conn.getInputStream(), <span class="string">&quot;utf-8&quot;</span>));</span><br><span class="line">                        String line = <span class="string">&quot;&quot;</span>;</span><br><span class="line">                        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) {</span><br><span class="line">                            <span class="comment">// line = new String(line.getBytes(), &quot;utf-8&quot;);</span></span><br><span class="line">                            returnLine += line;</span><br><span class="line">                        }</span><br><span class="line"></span><br><span class="line">                        httpCallBack.onSuccess(adress_Http,</span><br><span class="line">                                returnLine);</span><br><span class="line"></span><br><span class="line">                    } <span class="keyword">else</span> {</span><br><span class="line">                        httpCallBack.onFailure(responseCode, REQUEST_FAIL,</span><br><span class="line">                                <span class="string">&quot;&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#xFF01;&quot;</span>);</span><br><span class="line">                    }</span><br><span class="line"></span><br><span class="line">                } <span class="keyword">catch</span> (MalformedURLException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, URL_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    httpCallBack.onFailure(responseCode, IO_Exception,</span><br><span class="line">                            e.getMessage());</span><br><span class="line">                    MyLog.i(TAG, e.toString());</span><br><span class="line">                } <span class="keyword">finally</span> {</span><br><span class="line">                    <span class="keyword">try</span> {</span><br><span class="line">                        <span class="keyword">if</span> (<span class="keyword">null</span> != reader)</span><br><span class="line">                            reader.close();</span><br><span class="line">                    } <span class="keyword">catch</span> (IOException ex) {</span><br><span class="line">                        MyLog.i(TAG, ex.toString());</span><br><span class="line">                    }</span><br><span class="line">                    <span class="keyword">try</span> {</span><br><span class="line">                        <span class="keyword">if</span> (<span class="keyword">null</span> != outtStream)</span><br><span class="line">                        {</span><br><span class="line">                            outtStream.flush();</span><br><span class="line">                            outtStream.close();</span><br><span class="line">                        }</span><br><span class="line">                    } <span class="keyword">catch</span> (IOException ex) {</span><br><span class="line">                        MyLog.i(TAG, ex.toString());</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">null</span> != conn)</span><br><span class="line">                    conn.disconnect();</span><br><span class="line">            }</span><br><span class="line">        };</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by mrpan on 15/12/4.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HttpResponseCallBack</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(String url, String result)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(<span class="keyword">int</span> httpResponseCode, <span class="keyword">int</span> errCode, String err)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#xFF1A;HttpHelper.getInstance().asyHttpGetRequest(url,HttpResponseCallBack);</p>
+
+      
+    </div>
+
+    <div>
+      
         
-    }
-  });
-});
-</script>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/15/安卓的Fragment/" rel="next" title="安卓的Fragment ">
+                <i class="fa fa-chevron-left"></i> 安卓的Fragment 
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/15/安卓图片高斯模糊-通过jni方式实现/" rel="prev" title="安卓图片高斯模糊(通过jni方式实现)">
+                安卓图片高斯模糊(通过jni方式实现) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="潘安" />
+          <p class="site-author-name" itemprop="name">潘安</p>
+          <p class="site-description motion-element" itemprop="description">纯技术分享的站点。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安卓http封装类"><span class="nav-number">1.</span> <span class="nav-text">安卓http封装类</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">潘安</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
 
 <script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
-
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-
-  $('.hoverqrcode').hide();
-
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
   }
-}); 
 </script>
 
 
 
-<!-- Analytics Begin -->
 
 
 
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
 </script>
 
 
-
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
-
-
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
-
-  </body>
+</body>
 </html>

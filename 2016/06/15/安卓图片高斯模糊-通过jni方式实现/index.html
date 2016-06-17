@@ -1,17 +1,90 @@
+<!doctype html>
 
- <!DOCTYPE HTML>
-<html >
-<head>
-  <meta charset="UTF-8">
+
+
   
-    <title>安卓图片高斯模糊(通过jni方式实现) | 小安安</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="潘安">
-    
 
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
     
-    <meta name="description" content="&amp;#x5B89;&amp;#x5353;&amp;#x56FE;&amp;#x7247;&amp;#x9AD8;&amp;#x65AF;&amp;#x6A21;&amp;#x7CCA;(&amp;#x901A;&amp;#x8FC7;jni&amp;#x65B9;&amp;#x5F0F;&amp;#x5B9E;&amp;#x73B0;)&amp;#x201D;
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="纯技术分享的博客。" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5B89;&amp;#x5353;&amp;#x56FE;&amp;#x7247;&amp;#x9AD8;&amp;#x65AF;&amp;#x6A21;&amp;#x7CCA;(&amp;#x901A;&amp;#x8FC7;jni&amp;#x65B9;&amp;#x5F0F;&amp;#x5B9E;&amp;#x73B0;)&amp;#x201D;
 &amp;#x5728;&amp;#x5B9E;&amp;#x9645;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x5F88;&amp;#x591A;&amp;#x5730;&amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安卓图片高斯模糊(通过jni方式实现)">
@@ -27,85 +100,221 @@
 &amp;#x5728;&amp;#x5B9E;&amp;#x9645;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x5F88;&amp;#x591A;&amp;#x5730;&amp;#">
 <meta name="twitter:image" content="http://blog.mrpann.com/2016/06/15/安卓图片高斯模糊-通过jni方式实现/demo.jpg">
 
-    
-    <link rel="alternative" href="/atom.xml" title="小安安" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 9174779,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://blog.mrpann.com/2016/06/15/安卓图片高斯模糊-通过jni方式实现/"/>
+
+  <title> 安卓图片高斯模糊(通过jni方式实现) | 小安安 </title>
 </head>
 
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="小安安" title="小安安"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="小安安">小安安</a></h1>
-				<h2 class="blog-motto"></h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">主页</a></li>
-					
-						<li><a href="/archives">归档</a></li>
-					
-						<li><a href="/about">关于</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:blog.mrpann.com">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
   
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
+
+
+
+
+
+
+
+
+
+
+  
+  
     
-      <a href="/2016/06/15/安卓图片高斯模糊-通过jni方式实现/" title="安卓图片高斯模糊(通过jni方式实现)" itemprop="url">安卓图片高斯模糊(通过jni方式实现)</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="潘安" target="_blank" itemprop="author">潘安</a>
-		
-  <p class="article-time">
-    <time datetime="2016-06-15T08:07:16.000Z" itemprop="datePublished"> 发表于 2016-06-15</time>
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小安安</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            Über
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Suche
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-  </p>
-</header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安卓图片高斯模糊-通过jni方式实现-”"><span class="toc-number">1.</span> <span class="toc-text">安卓图片高斯模糊(通过jni方式实现)”</span></a></li></ol>
-		
-		</div>
-		
-		<h1 id="&#x5B89;&#x5353;&#x56FE;&#x7247;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA;-&#x901A;&#x8FC7;jni&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;-&#x201D;"><a href="#&#x5B89;&#x5353;&#x56FE;&#x7247;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA;-&#x901A;&#x8FC7;jni&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;-&#x201D;" class="headerlink" title="&#x5B89;&#x5353;&#x56FE;&#x7247;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA;(&#x901A;&#x8FC7;jni&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;)&#x201D;"></a>&#x5B89;&#x5353;&#x56FE;&#x7247;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA;(&#x901A;&#x8FC7;jni&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;)&#x201D;</h1><hr>
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                安卓图片高斯模糊(通过jni方式实现)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T16:07:16+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x5B89;&#x5353;&#x56FE;&#x7247;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA;-&#x901A;&#x8FC7;jni&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;-&#x201D;"><a href="#&#x5B89;&#x5353;&#x56FE;&#x7247;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA;-&#x901A;&#x8FC7;jni&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;-&#x201D;" class="headerlink" title="&#x5B89;&#x5353;&#x56FE;&#x7247;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA;(&#x901A;&#x8FC7;jni&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;)&#x201D;"></a>&#x5B89;&#x5353;&#x56FE;&#x7247;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA;(&#x901A;&#x8FC7;jni&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;)&#x201D;</h1><hr>
 <p>&#x5728;&#x5B9E;&#x9645;&#x9879;&#x76EE;&#x4E2D;&#x5F88;&#x591A;&#x5730;&#x65B9;&#x7528;&#x5230;&#x4E86;&#x56FE;&#x7247;&#x6A21;&#x7CCA;&#xFF0C;&#x4F46;&#x662F;&#x5F80;&#x5F80;&#x4F7F;&#x7528;&#x975E;navie&#x5C42;&#x7684;&#x4EE3;&#x7801;&#x901F;&#x5EA6;&#x603B;&#x662F;&#x4E0D;&#x5C3D;&#x4EBA;&#x610F;&#xFF0C;&#x57FA;&#x672C;&#x4E0A;&#x56FE;&#x7247;&#x7A0D;&#x5FAE;&#x5927;&#x4E00;&#x70B9;&#x6216;&#x8005;&#x4E0D;&#x5927;&#x7ED8;&#x5236;&#x65F6;&#x95F4;&#x90FD;&#x57FA;&#x672C;&#x4E0A;&#x5927;&#x4E8E;16ms&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x4F1A;&#x7ED9;&#x4EBA;&#x4E00;&#x79CD;&#x201C;&#x5361;&#x987F;&#x201D;&#x7684;&#x611F;&#x89C9;&#x3002;&#x6240;&#x4EE5;&#x7279;&#x5730;&#x53BB;&#x7F51;&#x4E0A;&#x627E;&#x4E86;&#x4E2A;c&#x8279;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x901A;&#x8FC7;jni&#x8C03;&#x7528;&#xFF0C;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x4EE5;&#x4E0E;&#x5B89;&#x5353;&#x4EE3;&#x7801;&#x6BD4;&#x8F83;&#x4E00;&#x4E0B;&#xFF0C;&#x867D;&#x8BF4;&#x5728;&#x56FE;&#x7247;&#x538B;&#x7F29;&#x8FC7;&#x540E;&#x597D;&#x50CF;&#x4E24;&#x8005;&#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x663E;&#x8457;&#x4E0D;&#x540C;&#x3002;<br>&#x6211;&#x7684;&#x73AF;&#x5883;&#x662F;android studio&#xFF0C;Mac os 10.11<br>&#x914D;&#x7F6E;&#x597D;ndk&#x73AF;&#x5883;&#x540E;&#xFF0C;&#x522B;&#x5FD8;&#x8BB0;&#x5728;gradle.properties&#x672B;&#x52A0;&#x4E0A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.useDeprecatedNdk=true</span><br></pre></td></tr></table></figure></p>
 <p>&#x9996;&#x5148;&#x5728;&#x7C7B;&#x91CC;&#x9762;&#x5199;&#x597D;navie&#x65B9;&#x6CD5;&#x3002;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x539F;&#x59CB;&#x7684;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA; &#x65B9;&#x6CD5;</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">initCBlur1</span><span class="params">(<span class="keyword">int</span>[] pix, <span class="keyword">int</span> w ,<span class="keyword">int</span> h, <span class="keyword">int</span> r)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//&#x5229;&#x7528;&#x5747;&#x503C;&#x6A21;&#x7CCA;&#x8FDB;&#x884C;&#x62DF;&#x5408; &#x9AD8;&#x65AF;&#x6A21;&#x7CCA;</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">initCBlur2</span><span class="params">(<span class="keyword">int</span>[] pix, <span class="keyword">int</span> w ,<span class="keyword">int</span> h, <span class="keyword">int</span> r)</span></span>;</span><br></pre></td></tr></table></figure></p>
 <p>&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x65B9;&#x6CD5;&#x540D;&#x4F1A;&#x7206;&#x7EA2;&#xFF0C;&#x4E0D;&#x8981;&#x7BA1;&#x5B83;&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x5728;.so&#x6587;&#x4EF6;&#x4E2D;&#x5339;&#x914D;&#x4E0D;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#x3002;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x6253;&#x5F00;terminal&#xFF0C;cd&#x5230;&#x9879;&#x76EE;jni&#x6839;&#x76EE;&#x5F55;&#xFF0C;&#x8F93;&#x5165;&#x4E00;&#x4E0B;&#x8BED;&#x53E5;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javah com.example.mrpan.gaosimohu.BitmapUtils</span><br></pre></td></tr></table></figure></p>
@@ -115,356 +324,407 @@
 <p>&#x70B9;&#x5F00;&#x7EC8;&#x7AEF;&#x6267;&#x884C;<code>ndk-build</code>&#x547D;&#x4EE4;&#x3002;<br>&#x5982;&#x82E5;&#x6CA1;&#x6709;&#x51FA;&#x9519;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x4F1A;&#x53D1;&#x73B0;&#x76EE;&#x5F55;&#x4E0B;&#x591A;&#x4E86;obj&#x4EE5;&#x53CA;libs&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x6253;&#x5F00;&#x5C31;&#x80FD;&#x770B;&#x5230;.so&#x6587;&#x4EF6;&#x4E86;&#x3002;<br>&#x5F53;&#x4E2D;&#x5982;&#x679C;&#x51FA;&#x9519;&#xFF0C;&#x63D0;&#x793A;c++&#x6E90;&#x6587;&#x4EF6;&#x4E2D;&#x7206;&#x7EA2;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x5728;jni&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#xFF0C;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;Application.mk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#APP_STL:=stlport_static</span><br><span class="line">APP_STL := gnustl_static</span><br><span class="line">APP_STL :=stlport_static</span><br></pre></td></tr></table></figure></p>
 <p>&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;navie&#x65B9;&#x6CD5;&#x4E0D;&#x7206;&#x7EA2;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x7684;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x80FD;&#x7F16;&#x5199;&#x76F8;&#x5E94;&#x7684;&#x6A21;&#x7CCA;&#x4EE3;&#x7801;&#x4E86;&#x3002;bitmaputils<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by mrpan on 16/6/15.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BitmapUtils</span> </span>{</span><br><span class="line">    <span class="comment">//&#x5206;&#x522B;&#x5728;x&#x8F74; &#x548C; y&#x8F74;&#x65B9;&#x5411;&#x4E0A;&#x8FDB;&#x884C;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Bitmap <span class="title">gaussBlur1</span><span class="params">(Bitmap bitmap, <span class="keyword">int</span> radius)</span></span><br><span class="line">    </span>{</span><br><span class="line">        <span class="keyword">int</span> w = bitmap.getWidth();</span><br><span class="line">        <span class="keyword">int</span> h = bitmap.getHeight();</span><br><span class="line">        <span class="comment">//&#x751F;&#x6210;&#x4E00;&#x5F20;&#x65B0;&#x7684;&#x56FE;&#x7247;</span></span><br><span class="line">        Bitmap outBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);</span><br><span class="line">        <span class="comment">//&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x6570;&#x7EC4;&#x5B58;&#x50A8;&#x539F;&#x59CB;&#x56FE;&#x7247;&#x7684;&#x50CF;&#x7D20; &#x503C;</span></span><br><span class="line">        <span class="keyword">int</span>[] pix = <span class="keyword">new</span> <span class="keyword">int</span>[w * h];</span><br><span class="line">        <span class="comment">//&#x5C06;&#x56FE;&#x7247;&#x50CF;&#x7D20;&#x503C;&#x5199;&#x5165;&#x6570;&#x7EC4;</span></span><br><span class="line">        bitmap.getPixels(pix, <span class="number">0</span>, w, <span class="number">0</span>, <span class="number">0</span>, w, h);</span><br><span class="line">        <span class="comment">//&#x8FDB;&#x884C;&#x6A21;&#x7CCA;</span></span><br><span class="line">        initCBlur1(pix, w, h, radius);</span><br><span class="line">        <span class="comment">//&#x5C06;&#x6570;&#x636E;&#x5199;&#x5165;&#x5230; &#x56FE;&#x7247;</span></span><br><span class="line">        outBitmap.setPixels(pix, <span class="number">0</span>, w, <span class="number">0</span>, <span class="number">0</span>, w, h);</span><br><span class="line">        <span class="comment">//&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</span></span><br><span class="line">        <span class="keyword">return</span> outBitmap;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x5229;&#x7528;&#x5747;&#x503C;&#x6A21;&#x7CCA; &#x903C;&#x8FD1; &#x9AD8;&#x65AF;&#x6A21;&#x7CCA;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Bitmap <span class="title">gaussBlur2</span><span class="params">(Bitmap bitmap, <span class="keyword">int</span> radius)</span></span><br><span class="line">    </span>{</span><br><span class="line">        <span class="keyword">int</span> w = bitmap.getWidth();</span><br><span class="line">        <span class="keyword">int</span> h = bitmap.getHeight();</span><br><span class="line">        <span class="comment">//&#x751F;&#x6210;&#x4E00;&#x5F20;&#x65B0;&#x7684;&#x56FE;&#x7247;</span></span><br><span class="line">        Bitmap outBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);</span><br><span class="line">        <span class="comment">//&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x6570;&#x7EC4;&#x5B58;&#x50A8;&#x539F;&#x59CB;&#x56FE;&#x7247;&#x7684;&#x50CF;&#x7D20; &#x503C;</span></span><br><span class="line">        <span class="keyword">int</span>[] pix = <span class="keyword">new</span> <span class="keyword">int</span>[w * h];</span><br><span class="line">        <span class="comment">//&#x5C06;&#x56FE;&#x7247;&#x50CF;&#x7D20;&#x503C;&#x5199;&#x5165;&#x6570;&#x7EC4;</span></span><br><span class="line">        bitmap.getPixels(pix, <span class="number">0</span>, w, <span class="number">0</span>, <span class="number">0</span>, w, h);</span><br><span class="line">        <span class="comment">//&#x8FDB;&#x884C;&#x6A21;&#x7CCA;</span></span><br><span class="line">        initCBlur2(pix, w, h, radius);</span><br><span class="line">        <span class="comment">//&#x5C06;&#x6570;&#x636E;&#x5199;&#x5165;&#x5230; &#x56FE;&#x7247;</span></span><br><span class="line">        outBitmap.setPixels(pix, <span class="number">0</span>, w, <span class="number">0</span>, <span class="number">0</span>, w, h);</span><br><span class="line">        <span class="comment">//&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</span></span><br><span class="line">        <span class="keyword">return</span> outBitmap;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x539F;&#x59CB;&#x7684;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA; &#x65B9;&#x6CD5;</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">initCBlur1</span><span class="params">(<span class="keyword">int</span>[] pix, <span class="keyword">int</span> w ,<span class="keyword">int</span> h, <span class="keyword">int</span> r)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x5229;&#x7528;&#x5747;&#x503C;&#x6A21;&#x7CCA;&#x8FDB;&#x884C;&#x62DF;&#x5408; &#x9AD8;&#x65AF;&#x6A21;&#x7CCA;</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">initCBlur2</span><span class="params">(<span class="keyword">int</span>[] pix, <span class="keyword">int</span> w ,<span class="keyword">int</span> h, <span class="keyword">int</span> r)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x52A0;&#x8F7D;native&#x6A21;&#x5757;</span></span><br><span class="line">    <span class="keyword">static</span></span><br><span class="line">    {</span><br><span class="line">        System.loadLibrary(<span class="string">&quot;myBlur&quot;</span>);</span><br><span class="line">    };</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
 <p>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x5927;&#x529F;&#x544A;&#x6210;&#x4E86;&#x3002;&#x8BB0;&#x5F97;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x538B;&#x7F29;&#x51E0;&#x904D;&#x56FE;&#x7247;&#xFF0C;&#x4E0D;&#x7136;&#x8FD8;&#x662F;&#x4F1A;&#x51FA;&#x73B0;anr&#x7684;&#x1F602;&#x3002;<br>&#x9644;&#x4E0A;&#x4EE3;&#x7801;<a href="https://github.com/wslongchen/BlurSimple" target="_blank" rel="external">https://github.com/wslongchen/BlurSimple</a><br><img src="/2016/06/15/&#x5B89;&#x5353;&#x56FE;&#x7247;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA;-&#x901A;&#x8FC7;jni&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;/demo.jpg" alt="&#x793A;&#x4F8B;"></p>
-  
-	</div>
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
 
-
-</div>
-
-
-
-	<div class="article-share" id="share">
-	
-	  <div data-url="http://blog.mrpann.com/2016/06/15/安卓图片高斯模糊-通过jni方式实现/" data-title="安卓图片高斯模糊(通过jni方式实现) | 小安安" data-tsina="null" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>
-
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2016/06/16/dream接口访问文档/" title="dream接口访问文档">
-  <strong>上一篇：</strong><br/>
-  <span>
-  dream接口访问文档</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/2016/06/15/安卓http封装类/"  title="安卓http封装类">
- <strong>下一篇：</strong><br/> 
- <span>安卓http封装类
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安卓图片高斯模糊-通过jni方式实现-”"><span class="toc-number">1.</span> <span class="toc-text">安卓图片高斯模糊(通过jni方式实现)”</span></a></li></ol>
- 
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-<div class="github-card">
-<p class="asidetitle">Github 名片</p>
-<div class="github-card" data-github="wslongchen" data-width="220" data-height="119" data-theme="medium">
-<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
-</div>
-  </div>
-
-
-
-  
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/梦想-android-php/" title="梦想,android,php">梦想,android,php<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-        
-          <li>
-            
-            	<a href="http://mrpann.com" target="_blank" title="一个面向程序员交流分享的新一代社区">mrpan</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
-  
-
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
-</div>
-
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> 大家好，我是小安安 <br/>
-			一枚成熟而又稳健的程序猿。</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		
-		<a href="https://github.com/wslongchen" target="_blank" class="icon-github" title="github"></a>
-		
-		
-		
-		
-		
-		
-		
-		<a href="http://www.zhihu.com/people/mrpann## e.g. jark  for http://www.zhihu.com/people/jark" target="_blank" class="icon-zhihu" title="知乎"></a>
-		
-		
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> 
-		
-		<a href="/about" target="_blank" title="潘安">潘安</a>
-		
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
       
-      $('#toc.toc-aside').css('display', 'none');
+    </div>
+
+    <div>
+      
         
-    }
-  });
-});
-</script>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/15/安卓http封装类/" rel="next" title="安卓http封装类">
+                <i class="fa fa-chevron-left"></i> 安卓http封装类
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/16/dream接口访问文档/" rel="prev" title="dream接口访问文档">
+                dream接口访问文档 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="潘安" />
+          <p class="site-author-name" itemprop="name">潘安</p>
+          <p class="site-description motion-element" itemprop="description">纯技术分享的站点。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安卓图片高斯模糊-通过jni方式实现-”"><span class="nav-number">1.</span> <span class="nav-text">安卓图片高斯模糊(通过jni方式实现)”</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">潘安</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
 
 <script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
-
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-
-  $('.hoverqrcode').hide();
-
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
   }
-}); 
 </script>
 
 
 
-<!-- Analytics Begin -->
 
 
 
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
 </script>
 
 
-
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
-
-
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
-
-  </body>
+</body>
 </html>
