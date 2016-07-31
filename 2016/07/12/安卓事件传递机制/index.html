@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="纯技术分享的站点。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小安安">
-<meta property="og:url" content="http://blog.mrpann.com/index.html">
+<meta name="description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x5F53;&amp;#x624B;&amp;#x6307;&amp;#x89E6;&amp;#x6478;&amp;#x5230;&amp;#x5C4F;&amp;#x5E55;&amp;#x65F6;&amp;#xFF0C;&amp;#x7CFB;&amp;#x7EDF;&amp;#x5C31;&amp;#x4F1A;&amp;#x6389;&amp;#x7528;&amp;#x76F8;&amp;#x5E94;&amp;#x89C6;&amp;#x56FE;&amp;#x7684;onTouchEvent&amp;#xF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓事件传递机制">
+<meta property="og:url" content="http://blog.mrpann.com/2016/07/12/安卓事件传递机制/index.html">
 <meta property="og:site_name" content="小安安">
-<meta property="og:description" content="纯技术分享的站点。">
+<meta property="og:description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x5F53;&amp;#x624B;&amp;#x6307;&amp;#x89E6;&amp;#x6478;&amp;#x5230;&amp;#x5C4F;&amp;#x5E55;&amp;#x65F6;&amp;#xFF0C;&amp;#x7CFB;&amp;#x7EDF;&amp;#x5C31;&amp;#x4F1A;&amp;#x6389;&amp;#x7528;&amp;#x76F8;&amp;#x5E94;&amp;#x89C6;&amp;#x56FE;&amp;#x7684;onTouchEvent&amp;#xF">
+<meta property="og:updated_time" content="2016-07-31T05:00:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小安安">
-<meta name="twitter:description" content="纯技术分享的站点。">
+<meta name="twitter:title" content="安卓事件传递机制">
+<meta name="twitter:description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x5F53;&amp;#x624B;&amp;#x6307;&amp;#x89E6;&amp;#x6478;&amp;#x5230;&amp;#x5C4F;&amp;#x5E55;&amp;#x65F6;&amp;#xFF0C;&amp;#x7CFB;&amp;#x7EDF;&amp;#x5C31;&amp;#x4F1A;&amp;#x6389;&amp;#x7528;&amp;#x76F8;&amp;#x5E94;&amp;#x89C6;&amp;#x56FE;&amp;#x7684;onTouchEvent&amp;#xF">
 
 
 
@@ -113,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://blog.mrpann.com/"/>
+  <link rel="canonical" href="http://blog.mrpann.com/2016/07/12/安卓事件传递机制/"/>
 
-  <title> 小安安 </title>
+  <title> 安卓事件传递机制 | 小安安 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -238,9 +237,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -260,10 +259,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/07/12/安卓事件传递机制/" itemprop="url">
-                  安卓事件传递机制
-                </a>
+                安卓事件传递机制
               
             
           </h1>
@@ -310,9 +306,7 @@
       
 
       
-        
-          
-            <h2 id="&#x7B80;&#x8FF0;"><a href="#&#x7B80;&#x8FF0;" class="headerlink" title="&#x7B80;&#x8FF0;"></a>&#x7B80;&#x8FF0;</h2><p>&#x5F53;&#x624B;&#x6307;&#x89E6;&#x6478;&#x5230;&#x5C4F;&#x5E55;&#x65F6;&#xFF0C;&#x7CFB;&#x7EDF;&#x5C31;&#x4F1A;&#x6389;&#x7528;&#x76F8;&#x5E94;&#x89C6;&#x56FE;&#x7684;onTouchEvent&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x4E00;&#x7CFB;&#x5217;&#x7684;action&#x3002;</p>
+        <h2 id="&#x7B80;&#x8FF0;"><a href="#&#x7B80;&#x8FF0;" class="headerlink" title="&#x7B80;&#x8FF0;"></a>&#x7B80;&#x8FF0;</h2><p>&#x5F53;&#x624B;&#x6307;&#x89E6;&#x6478;&#x5230;&#x5C4F;&#x5E55;&#x65F6;&#xFF0C;&#x7CFB;&#x7EDF;&#x5C31;&#x4F1A;&#x6389;&#x7528;&#x76F8;&#x5E94;&#x89C6;&#x56FE;&#x7684;onTouchEvent&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x4E00;&#x7CFB;&#x5217;&#x7684;action&#x3002;</p>
 <h2 id="dispatchTouchEvent&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;"><a href="#dispatchTouchEvent&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;" class="headerlink" title="dispatchTouchEvent&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;"></a>dispatchTouchEvent&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;</h2><p>&#x9996;&#x5148;&#xFF0C;&#x89E6;&#x53D1;activity&#x7684;dispatchTouchEvent&#xFF0C;&#x7136;&#x540E;&#x89E6;&#x53D1;activity&#x7684;onUserInteraction&#xFF0C;<br>&#x7D27;&#x63A5;&#x51FA;&#x53D1;layout&#x7684;dispatchTouchEvent&#xFF0C;&#x7136;&#x540E;&#x518D;&#x89E6;&#x53D1;layout&#x7684;onInterceptTouchEvent&#x4E8B;&#x4EF6;&#x3002;<br>&#x4E8E;&#x662F;&#x91CD;&#x5199;viewgroup&#x5FC5;&#x987B;&#x8C03;&#x7528;super.onInterceptTouchEvent();</p>
 <h4 id="dispatchTouchEvent"><a href="#dispatchTouchEvent" class="headerlink" title="dispatchTouchEvent"></a>dispatchTouchEvent</h4><p>&#x6B64;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x521D;&#x6B65;&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#xFF0C;&#x52A8;&#x4F5C;&#x7531;&#x6B64;&#x5206;&#x53D1;&#xFF0C;&#x6240;&#x4EE5;&#x901A;&#x5E38;&#x8C03;&#x7528;super.onInterceptTouchEvent&#x3002;</p>
 <h4 id="onInterceptTouchEvent"><a href="#onInterceptTouchEvent" class="headerlink" title="onInterceptTouchEvent"></a>onInterceptTouchEvent</h4><p>&#x82E5;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;true&#xFF0C;&#x4E8B;&#x4EF6;&#x4F1A;&#x4F20;&#x9012;&#x5230;&#x81EA;&#x5DF1;&#x7684;onTouchEvent();<br>&#x53CD;&#x4E4B;&#xFF0C;&#x4F20;&#x9012;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;view&#x7684;dispatchTouchEvent();</p>
@@ -324,223 +318,40 @@
 <h2 id="&#x793A;&#x4F8B;"><a href="#&#x793A;&#x4F8B;" class="headerlink" title="&#x793A;&#x4F8B;"></a>&#x793A;&#x4F8B;</h2><h4 id="&#x5904;&#x7406;viewpager&#x4E0E;listview&#x7684;&#x51B2;&#x7A81;"><a href="#&#x5904;&#x7406;viewpager&#x4E0E;listview&#x7684;&#x51B2;&#x7A81;" class="headerlink" title="&#x5904;&#x7406;viewpager&#x4E0E;listview&#x7684;&#x51B2;&#x7A81;"></a>&#x5904;&#x7406;viewpager&#x4E0E;listview&#x7684;&#x51B2;&#x7A81;</h4><p>&#x8BB0;&#x5F55;&#x6C34;&#x5E73;&#x4E0E;&#x5782;&#x76F4;&#x65B9;&#x5411;&#x7684;&#x504F;&#x79FB;&#x91CF;&#xFF0C;&#x6C34;&#x5E73;&#x65B9;&#x5411;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x66F4;&#x591A;&#x7684;&#x8BDD;&#x5C31;&#x8BA9;viewpager&#x5904;&#x7406;page&#x6ED1;&#x52A8;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">FixedViewPager</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span></span><br><span class="line"><span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>{</span><br><span class="line">    <span class="keyword">switch</span>(ev.getAction() &amp;</span><br><span class="line">MotionEvent.ACTION_MASK) {</span><br><span class="line">        <span class="keyword">case</span> MotionEvent.ACTION_DOWN:</span><br><span class="line">            mX = ev.getX();</span><br><span class="line">            mY = ev.getY();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> MotionEvent.ACTION_MOVE:</span><br><span class="line">            <span class="keyword">float</span> x = ev.getX();</span><br><span class="line">            <span class="keyword">float</span> y = ev.getY();</span><br><span class="line">            <span class="keyword">float</span> dX = x - mX;</span><br><span class="line">            <span class="keyword">float</span> dY = y - mY;</span><br><span class="line">            <span class="keyword">float</span> tmp = Math.abs(dX) /</span><br><span class="line">Math.abs(dY);</span><br><span class="line">            mX = x;</span><br><span class="line">            mY = y;</span><br><span class="line">            <span class="keyword">if</span> (tmp &gt; <span class="number">1</span>) {</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line"><span class="keyword">super</span>.onInterceptTouchEvent(ev);</span><br><span class="line">} }</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.onInterceptTouchEvent(ev);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
 <h4 id="&#x5904;&#x7406;viewpager&#x4E0E;imagebanner&#x7684;&#x6EDA;&#x52A8;&#x51B2;&#x7A81;"><a href="#&#x5904;&#x7406;viewpager&#x4E0E;imagebanner&#x7684;&#x6EDA;&#x52A8;&#x51B2;&#x7A81;" class="headerlink" title="&#x5904;&#x7406;viewpager&#x4E0E;imagebanner&#x7684;&#x6EDA;&#x52A8;&#x51B2;&#x7A81;"></a>&#x5904;&#x7406;viewpager&#x4E0E;imagebanner&#x7684;&#x6EDA;&#x52A8;&#x51B2;&#x7A81;</h4><p>&#x8BB0;&#x5F55;&#x504F;&#x79FB;&#x91CF;&#xFF0C;&#x5982;&#x679C;&#x53D1;&#x751F;&#x5728;imagebanner&#x7684;&#x6C34;&#x5E73;&#x504F;&#x79FB;&#x91CF;&#x5927;&#x96E8;&#x5782;&#x76F4;&#x504F;&#x79FB;&#x91CF;&#xFF0C;&#x5C31;&#x8BA9;banner&#x6EDA;&#x52A8;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">FixedImageLoadBanner</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent</span><br><span class="line">ev)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">0</span> != mX || <span class="number">0</span> != mY) {</span><br><span class="line">        <span class="keyword">float</span> dY = ev.getRawY() - mY;</span><br><span class="line">        <span class="keyword">float</span> dX = ev.getRawX() - mX;</span><br><span class="line">        <span class="keyword">if</span> (Math.abs(dY) &gt; Math.abs(dX)) {</span><br><span class="line">requestDisallowInterceptTouchEvent(<span class="keyword">false</span>);</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">requestDisallowInterceptTouchEvent(<span class="keyword">true</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    mX = ev.getRawX();</span><br><span class="line">    mY = ev.getRawY();</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.dispatchTouchEvent(ev);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/08/mac下安装home-brew/" itemprop="url">
-                  mac下安装home-brew
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-08T14:51:49+08:00" content="2016-07-08">
-              2016-07-08
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/08/mac下安装home-brew/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/08/mac下安装home-brew/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://raw.githubusercontent.com/wslongchen/wslongchen.github.io/master/images/wechat.JPG" alt="潘安 WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
       
       
-
-      
-        
-          <h2 id="&#x5B89;&#x88C5;home-brew"><a href="#&#x5B89;&#x88C5;home-brew" class="headerlink" title="&#x5B89;&#x88C5;home-brew"></a>&#x5B89;&#x88C5;home-brew</h2><p>&#x9996;&#x5148;&#x662F;&#x5B89;&#x88C5;home-brew&#xFF0C;&#x6253;&#x5F00;&#x7EC8;&#x7AEF;&#xFF0C;&#x8F93;&#x5165;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></span><br></pre></td></tr></table></figure></p>
-<p>&#x7136;&#x540E;&#x6309;&#x7167;&#x63D0;&#x793A;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#x3002;<br>&#x8F93;&#x5165;brew &#xFF0D;v&#x67E5;&#x770B;&#x7248;&#x672C;&#x4FE1;&#x606F;&#xFF0C;&#x5DF2;&#x8868;&#x793A;&#x4F60;&#x5B89;&#x88C5;&#x6210;&#x529F;&#x3002;<br></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/08/mac下安装home-brew/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/02/简单实现自己的类似UniversalImageLoader网络图片加载缓存框架/" itemprop="url">
-                  简单实现自己的类似UniversalImageLoader网络图片加载缓存框架
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-02T20:13:57+08:00" content="2016-07-02">
-              2016-07-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/02/简单实现自己的类似UniversalImageLoader网络图片加载缓存框架/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/02/简单实现自己的类似UniversalImageLoader网络图片加载缓存框架/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://raw.githubusercontent.com/wslongchen/wslongchen.github.io/master/images/alipay2.JPG" alt="潘安 Alipay"/>
+          <p>支付宝打赏</p>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h2><p>&#x4E00;&#x76F4;&#x4EE5;&#x6765;&#x90FD;&#x5728;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x6846;&#x67B6;&#x52A0;&#x8F7D;&#x56FE;&#x7247;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x6837;&#x4F1A;&#x7701;&#x4E0B;&#x4E0D;&#x5C11;&#x7684;&#x5F00;&#x53D1;&#x6210;&#x672C;&#xFF0C;&#x5E38;&#x7528;&#x7684;&#x4E00;&#x4E9B;&#x5982;universal-image-loader&#x4EE5;&#x53CA;&#x8C37;&#x6B4C;&#x5B98;&#x65B9;&#x7684;&#x56FE;&#x7247;&#x6846;&#x67B6;glide&#x6216;&#x8005;&#x76F8;&#x4F3C;&#x7684;picasso&#x90FD;&#x57FA;&#x672C;&#x4E0A;&#x80FD;&#x591F;&#x6EE1;&#x8DB3;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7684;&#x9700;&#x6C42;&#x3002;<br>&#x672C;&#x7740;&#x5B66;&#x4E60;&#x7684;&#x6001;&#x5EA6;&#xFF0C;&#x5728;&#x53C2;&#x8003;&#x4E86;&#x82E5;&#x5E72;&#x6848;&#x4F8B;&#x4E4B;&#x540E;&#xFF0C;&#x7AD9;&#x7740;&#x64B8;&#x4E86;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;universal-image-loader&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x600E;&#x4E48;&#x8BC4;&#x4EF7;&#x5B83;&#x5462;&#xFF0C;&#x4E00;&#x53E5;&#x8BDD;&#xFF1A;&#x51D1;&#x5408;&#x51D1;&#x5408;&#x80FD;&#x7528;&#x5427;&#xFF5E;<br>&#x5DF2;&#x5E76;&#x5165;&#x6211;&#x81EA;&#x5DF1;&#x5199;&#x7684;&#x5C0F;&#x5DE5;&#x5177;AnnUtils&#x7684;imageloader&#x6A21;&#x5757;&#xFF0C;&#x4F20;&#x9001;&#x95E8;&#xFF1A;<a href="https://github.com/wslongchen/annutils/tree/master/src/main/java/com/example/mrpan/annutils/ImageLoader">github</a><br></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/02/简单实现自己的类似UniversalImageLoader网络图片加载缓存框架/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
       
     </div>
+  </div>
 
-    <div>
-      
-    </div>
 
-    <div>
       
     </div>
 
@@ -548,229 +359,51 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/07/08/mac下安装home-brew/" rel="next" title="mac下安装home-brew">
+                <i class="fa fa-chevron-left"></i> mac下安装home-brew
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/07/01/AsyncTask多线程/" itemprop="url">
-                  AsyncTask多线程
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-01T21:29:33+08:00" content="2016-07-01">
-              2016-07-01
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/01/AsyncTask多线程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/01/AsyncTask多线程/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h2 id="AsyncTask"><a href="#AsyncTask" class="headerlink" title="AsyncTask"></a>AsyncTask</h2><p>tips&#xFF1A;asynctask&#x7684;&#x7EBF;&#x7A0B;&#x6C60;ThreadPoolExecutor&#x90FD;&#x662F;&#x8FDB;&#x7A0B;&#x8303;&#x56F4;&#x5185;&#x5171;&#x4EAB;&#x7684;&#xFF0C;&#x90FD;&#x662F;static&#x3002;&#x6240;&#x4EE5;&#x5B83;&#x63A7;&#x5236;&#x8FDB;&#x7A0B;&#x5185;&#x6240;&#x6709;&#x5B50;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x3002;&#x6240;&#x4EE5;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7EBF;&#x7A0B;&#x6C60;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x7EBF;&#x7A0B;&#x6570;&#x8D85;&#x8FC7;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x6700;&#x5927;&#x5BB9;&#x91CF;&#xFF0C;3.0&#x4EE5;&#x524D;&#x7684;&#x7248;&#x672C;&#x4F1A;&#x6302;&#x6389;&#xFF0C;3.0&#x4EE5;&#x540E;&#x4E32;&#x884C;&#x4E4B;&#x884C;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x63A8;&#x8350;&#x81EA;&#x5B9A;&#x4E49;&#x7EBF;&#x7A0B;&#x6C60;&#x914D;&#x5408;&#x5176;&#x4F7F;&#x7528;&#x3002;<br></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/01/AsyncTask多线程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
+
+    <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2016/07/12/安卓事件传递机制/"
+     data-title="安卓事件传递机制"
+     data-content=""
+     data-url="http://blog.mrpann.com/2016/07/12/安卓事件传递机制/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
-  
-  
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
 
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/16/dream接口访问文档/" itemprop="url">
-                  dream接口访问文档
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-16T10:05:14+08:00" content="2016-06-16">
-              2016-06-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/16/dream接口访问文档/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/16/dream接口访问文档/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&#x63A5;&#x53E3;&#x8BBF;&#x95EE;<br>appKey:dream ,.<em>-app<br>&#x51FA;&#x4E8E;&#x63A5;&#x53E3;&#x7684;&#x5B89;&#x5168;&#x6027;&#x8003;&#x8651;&#xFF0C;&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x672C;&#x6587;&#x6863;&#x63A5;&#x53E3;&#x65F6;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x4F20;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;<br>1&#x3001; timestamp &#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x5373;&#x8C03;&#x7528;&#x63A5;&#x53E3;&#x65F6;&#x7684;&#x65F6;&#x95F4;&#x6233;<br>2&#x3001; sign &#x7B7E;&#x540D; ,&#x6839;&#x636E;appKey&#x3001;timestamp&#x548C;&#x8C03;&#x7528;&#x7684;&#x63A5;&#x53E3;&#x540D;&#x5B57;&#x6309;&#x89C4;&#x5219;&#x751F;&#x6210;<br>&#x6CE8;&#x610F;&#xFF1A;&#x7528;&#x4F5C;&#x751F;&#x6210;sign&#x7684;timestamp&#x548C;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7684;timestamp&#x5FC5;&#x987B;&#x4E00;&#x81F4;<br></em></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/16/dream接口访问文档/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -778,6 +411,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/12/安卓事件传递机制/"
+           data-title="安卓事件传递机制" data-url="http://blog.mrpann.com/2016/07/12/安卓事件传递机制/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -797,8 +438,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -841,6 +491,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dispatchTouchEvent的执行顺序"><span class="nav-number">2.</span> <span class="nav-text">dispatchTouchEvent的执行顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dispatchTouchEvent"><span class="nav-number">2.0.1.</span> <span class="nav-text">dispatchTouchEvent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onInterceptTouchEvent"><span class="nav-number">2.0.2.</span> <span class="nav-text">onInterceptTouchEvent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onTouchEvent"><span class="nav-number">2.0.3.</span> <span class="nav-text">onTouchEvent</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onTouchEvent的传递"><span class="nav-number">3.</span> <span class="nav-text">onTouchEvent的传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父级onInterceptTouchEvent截取"><span class="nav-number">4.</span> <span class="nav-text">父级onInterceptTouchEvent截取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">5.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#处理viewpager与listview的冲突"><span class="nav-number">5.0.1.</span> <span class="nav-text">处理viewpager与listview的冲突</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理viewpager与imagebanner的滚动冲突"><span class="nav-number">5.0.2.</span> <span class="nav-text">处理viewpager与imagebanner的滚动冲突</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -937,6 +598,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
