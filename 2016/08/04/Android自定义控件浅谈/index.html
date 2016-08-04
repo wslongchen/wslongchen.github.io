@@ -1,0 +1,799 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="纯技术分享的博客。" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x5B9E;&amp;#x9645;&amp;#x7684;&amp;#x5B89;&amp;#x5353;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x5230;&amp;#x8BB8;&amp;#x8BB8;&amp;#x591A;&amp;#x591A;&amp;#x7684;&amp;#x9177;&amp;#x70AB;&amp;#x7684;&amp;#x81EA;&amp;#x5B9A;&amp;#x4E49;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android自定义控件浅谈">
+<meta property="og:url" content="http://blog.mrpann.com/2016/08/04/Android自定义控件浅谈/index.html">
+<meta property="og:site_name" content="小安安">
+<meta property="og:description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x5B9E;&amp;#x9645;&amp;#x7684;&amp;#x5B89;&amp;#x5353;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x5230;&amp;#x8BB8;&amp;#x8BB8;&amp;#x591A;&amp;#x591A;&amp;#x7684;&amp;#x9177;&amp;#x70AB;&amp;#x7684;&amp;#x81EA;&amp;#x5B9A;&amp;#x4E49;">
+<meta property="og:updated_time" content="2016-08-04T15:32:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android自定义控件浅谈">
+<meta name="twitter:description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x5B9E;&amp;#x9645;&amp;#x7684;&amp;#x5B89;&amp;#x5353;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x5230;&amp;#x8BB8;&amp;#x8BB8;&amp;#x591A;&amp;#x591A;&amp;#x7684;&amp;#x9177;&amp;#x70AB;&amp;#x7684;&amp;#x81EA;&amp;#x5B9A;&amp;#x4E49;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 9174779,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://blog.mrpann.com/2016/08/04/Android自定义控件浅谈/"/>
+
+  <title> Android自定义控件浅谈 | 小安安 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小安安</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android自定义控件浅谈
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-04T23:03:04+08:00" content="2016-08-04">
+              2016-08-04
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/04/Android自定义控件浅谈/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/04/Android自定义控件浅谈/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="&#x7B80;&#x8FF0;"><a href="#&#x7B80;&#x8FF0;" class="headerlink" title="&#x7B80;&#x8FF0;"></a>&#x7B80;&#x8FF0;</h2><p>&#x5B9E;&#x9645;&#x7684;&#x5B89;&#x5353;&#x5F00;&#x53D1;&#x4E2D;&#x9700;&#x8981;&#x7528;&#x5230;&#x8BB8;&#x8BB8;&#x591A;&#x591A;&#x7684;&#x9177;&#x70AB;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;&#xFF0C;&#x624D;&#x80FD;&#x5145;&#x5206;&#x5438;&#x5F15;&#x7528;&#x6237;&#x7684;&#x773C;&#x7403;&#x548C;&#x6EE1;&#x8DB3;&#x5BA2;&#x6237;&#x7684;&#x9700;&#x6C42;&#x3002;<br><a id="more"></a></p>
+<h2 id="&#x6B65;&#x9AA4;"><a href="#&#x6B65;&#x9AA4;" class="headerlink" title="&#x6B65;&#x9AA4;"></a>&#x6B65;&#x9AA4;</h2><ul>
+<li>&#x4E86;&#x89E3;view&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;</li>
+<li>&#x7F16;&#x5199;&#x7EE7;&#x627F;view&#x7684;&#x5B50;&#x7C7B;</li>
+<li>&#x6DFB;&#x52A0;&#x81EA;&#x5B9A;&#x4E49;view&#x7C7B;&#x7684;&#x5C5E;&#x6027;</li>
+<li>&#x7ED8;&#x5236;&#x63A7;&#x4EF6;</li>
+<li>&#x54CD;&#x5E94;&#x7528;&#x6237;&#x6D88;&#x606F;</li>
+<li>&#x81EA;&#x5B9A;&#x4E49;&#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
+</ul>
+<h2 id="view&#x539F;&#x7406;"><a href="#view&#x539F;&#x7406;" class="headerlink" title="view&#x539F;&#x7406;"></a>view&#x539F;&#x7406;</h2><p>&#x53EF;&#x53C2;&#x8003;&#x4EE5;&#x524D;&#x5199;&#x7684;&#x6587;&#x7AE0;<a href="http://blog.mrpann.com/2016/06/14/Android-view&#x7ED8;&#x753B;&#x673A;&#x5236;/">Android view&#x7ED8;&#x753B;&#x673A;&#x5236;</a>&#x3002;</p>
+<p>Android&#x7CFB;&#x7EDF;&#x7684;&#x89C6;&#x56FE;&#x7ED3;&#x6784;&#x7684;&#x8BBE;&#x8BA1;&#x4E5F;&#x91C7;&#x7528;&#x4E86;&#x7EC4;&#x5408;&#x6A21;&#x5F0F;&#xFF0C;&#x5373;View&#x4F5C;&#x4E3A;&#x6240;&#x6709;&#x56FE;&#x5F62;&#x7684;&#x57FA;&#x7C7B;&#xFF0C;Viewgroup&#x5BF9;View&#x7EE7;&#x627F;&#x6269;&#x5C55;&#x4E3A;&#x89C6;&#x56FE;&#x5BB9;&#x5668;&#x7C7B;&#x3002;</p>
+<p>View&#x5B9A;&#x4E49;&#x4E86;&#x7ED8;&#x56FE;&#x7684;&#x57FA;&#x672C;&#x64CD;&#x4F5C;<br>&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#x7531;&#x4E09;&#x4E2A;&#x51FD;&#x6570;&#x5B8C;&#x6210;&#xFF1A;measure()&#x3001;layout()&#x3001;draw()&#xFF0C;&#x5176;&#x5185;&#x90E8;&#x53C8;&#x5206;&#x522B;&#x5305;&#x542B;&#x4E86;onMeasure()&#x3001;onLayout()&#x3001;onDraw()&#x4E09;&#x4E2A;&#x5B50;&#x65B9;&#x6CD5;&#x3002;&#x5177;&#x4F53;&#x64CD;&#x4F5C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li><p>measure&#x64CD;&#x4F5C;<br>measure&#x64CD;&#x4F5C;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x8BA1;&#x7B97;&#x89C6;&#x56FE;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5373;&#x89C6;&#x56FE;&#x7684;&#x5BBD;&#x5EA6;&#x548C;&#x957F;&#x5EA6;&#x3002;&#x5728;view&#x4E2D;&#x5B9A;&#x4E49;&#x4E3A;final&#x7C7B;&#x578B;&#xFF0C;&#x8981;&#x6C42;&#x5B50;&#x7C7B;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x3002;measure()&#x51FD;&#x6570;&#x4E2D;&#x53C8;&#x4F1A;&#x8C03;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x51FD;&#x6570;&#xFF1A;<br>&#xFF08;1&#xFF09;onMeasure()&#xFF0C;&#x89C6;&#x56FE;&#x5927;&#x5C0F;&#x7684;&#x5C06;&#x5728;&#x8FD9;&#x91CC;&#x6700;&#x7EC8;&#x786E;&#x5B9A;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;measure&#x53EA;&#x662F;&#x5BF9;onMeasure&#x7684;&#x4E00;&#x4E2A;&#x5305;&#x88C5;&#xFF0C;&#x5B50;&#x7C7B;&#x53EF;&#x4EE5;&#x8986;&#x5199;onMeasure()&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x81EA;&#x5DF1;&#x7684;&#x8BA1;&#x7B97;&#x89C6;&#x56FE;&#x5927;&#x5C0F;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;setMeasuredDimension(width, height)&#x4FDD;&#x5B58;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x3002;</p>
+</li>
+<li><p>layout&#x64CD;&#x4F5C;<br>layout&#x64CD;&#x4F5C;&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x89C6;&#x56FE;&#x5728;&#x5C4F;&#x5E55;&#x4E2D;&#x663E;&#x793A;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x5728;view&#x4E2D;&#x5B9A;&#x4E49;&#x4E3A;final&#x7C7B;&#x578B;&#xFF0C;&#x8981;&#x6C42;&#x5B50;&#x7C7B;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x3002;layout()&#x51FD;&#x6570;&#x4E2D;&#x6709;&#x4E24;&#x4E2A;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#xFF1A;<br>&#xFF08;1&#xFF09;setFrame&#xFF08;l,t,r,b&#xFF09;&#xFF0C;l,t,r,b&#x5373;&#x5B50;&#x89C6;&#x56FE;&#x5728;&#x7236;&#x89C6;&#x56FE;&#x4E2D;&#x7684;&#x5177;&#x4F53;&#x4F4D;&#x7F6E;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x7528;&#x4E8E;&#x5C06;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x4FDD;&#x5B58;&#x8D77;&#x6765;&#xFF1B;<br>&#xFF08;2&#xFF09;onLayout()&#xFF0C;&#x5728;View&#x4E2D;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4EC0;&#x4E48;&#x90FD;&#x4E0D;&#x4F1A;&#x505A;&#xFF0C;&#x63D0;&#x4F9B;&#x8BE5;&#x51FD;&#x6570;&#x4E3B;&#x8981;&#x662F;&#x4E3A;viewGroup&#x7C7B;&#x578B;&#x5E03;&#x5C40;&#x5B50;&#x89C6;&#x56FE;&#x7528;&#x7684;&#xFF1B;</p>
+</li>
+<li><p>draw&#x64CD;&#x4F5C;<br>draw&#x64CD;&#x4F5C;&#x5229;&#x7528;&#x524D;&#x4E24;&#x90E8;&#x5F97;&#x5230;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5C06;&#x89C6;&#x56FE;&#x663E;&#x793A;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#xFF0C;&#x5230;&#x8FD9;&#x91CC;&#x4E5F;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x6574;&#x4E2A;&#x7684;&#x89C6;&#x56FE;&#x7ED8;&#x5236;&#x5DE5;&#x4F5C;&#x3002;&#x5B50;&#x7C7B;&#x4E5F;&#x4E0D;&#x5E94;&#x8BE5;&#x4FEE;&#x6539;&#x8BE5;&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x4E3A;&#x5176;&#x5185;&#x90E8;&#x5B9A;&#x4E49;&#x4E86;&#x7ED8;&#x56FE;&#x7684;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#xFF1A;<br>&#xFF08;1&#xFF09;&#x7ED8;&#x5236;&#x80CC;&#x666F;&#xFF1B;<br>&#xFF08;2&#xFF09;&#x5982;&#x679C;&#x8981;&#x89C6;&#x56FE;&#x663E;&#x793A;&#x6E10;&#x53D8;&#x6846;&#xFF0C;&#x8FD9;&#x91CC;&#x4F1A;&#x505A;&#x4E00;&#x4E9B;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#xFF1B;<br>&#xFF08;3&#xFF09;&#x7ED8;&#x5236;&#x89C6;&#x56FE;&#x672C;&#x8EAB;&#xFF0C;&#x5373;&#x8C03;&#x7528;onDraw()&#x51FD;&#x6570;&#x3002;&#x5728;view&#x4E2D;onDraw()&#x662F;&#x4E2A;&#x7A7A;&#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5177;&#x4F53;&#x7684;&#x89C6;&#x56FE;&#x90FD;&#x8981;&#x8986;&#x5199;&#x8BE5;&#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x81EA;&#x5DF1;&#x7684;&#x663E;&#x793A;&#xFF08;&#x6BD4;&#x5982;TextView&#x5728;&#x8FD9;&#x91CC;&#x5B9E;&#x73B0;&#x4E86;&#x7ED8;&#x5236;&#x6587;&#x5B57;&#x7684;&#x8FC7;&#x7A0B;&#xFF09;&#x3002;&#x800C;&#x5BF9;&#x4E8E;ViewGroup&#x5219;&#x4E0D;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x8BE5;&#x51FD;&#x6570;&#xFF0C;&#x56E0;&#x4E3A;&#x4F5C;&#x4E3A;&#x5BB9;&#x5668;&#x662F;&#x201C;&#x6CA1;&#x6709;&#x5185;&#x5BB9;&#x201C;&#x7684;&#xFF0C;&#x5176;&#x5305;&#x542B;&#x4E86;&#x591A;&#x4E2A;&#x5B50;view&#xFF0C;&#x800C;&#x5B50;View&#x5DF2;&#x7ECF;&#x5B9E;&#x73B0;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x7ED8;&#x5236;&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#x53EA;&#x9700;&#x8981;&#x544A;&#x8BC9;&#x5B50;view&#x7ED8;&#x5236;&#x81EA;&#x5DF1;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E0B;&#x9762;&#x7684;dispatchDraw()&#x65B9;&#x6CD5;;<br>&#xFF08;4&#xFF09;&#x7ED8;&#x5236;&#x5B50;&#x89C6;&#x56FE;&#xFF0C;&#x5373;dispatchDraw()&#x51FD;&#x6570;&#x3002;&#x5728;view&#x4E2D;&#x8FD9;&#x662F;&#x4E2A;&#x7A7A;&#x51FD;&#x6570;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x89C6;&#x56FE;&#x4E0D;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x8BE5;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x662F;&#x4E13;&#x95E8;&#x4E3A;&#x5BB9;&#x5668;&#x7C7B;&#x51C6;&#x5907;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5BB9;&#x5668;&#x7C7B;&#x5FC5;&#x987B;&#x5B9E;&#x73B0;&#x8BE5;&#x65B9;&#x6CD5;&#xFF1B;<br>&#xFF08;5&#xFF09;&#x5982;&#x679C;&#x9700;&#x8981;&#xFF08;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;&#x4E86;setVerticalFadingEdge&#x6216;&#x8005;setHorizontalFadingEdge&#xFF09;&#xFF0C;&#x5F00;&#x59CB;&#x7ED8;&#x5236;&#x6E10;&#x53D8;&#x6846;&#xFF1B;<br>&#xFF08;6&#xFF09;&#x7ED8;&#x5236;&#x6EDA;&#x52A8;&#x6761;&#xFF1B;<br>&#x4ECE;&#x4E0A;&#x9762;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x81EA;&#x5B9A;&#x4E49;View&#x9700;&#x8981;&#x6700;&#x5C11;&#x8986;&#x5199;onMeasure()&#x548C;onDraw()&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</p>
+</li>
+</ul>
+<h2 id="view&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;"><a href="#view&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;" class="headerlink" title="view&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;"></a>view&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;</h2><p>&#x521B;&#x5EFA;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;&#x7684;3&#x79CD;&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;:<br>1&#xFF09;&#x7EE7;&#x627F;&#x5DF2;&#x6709;&#x7684;&#x63A7;&#x4EF6;&#x6765;&#x5B9E;&#x73B0;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;: &#x4E3B;&#x8981;&#x662F;&#x5F53;&#x8981;&#x5B9E;&#x73B0;&#x7684;&#x63A7;&#x4EF6;&#x548C;&#x5DF2;&#x6709;&#x7684;&#x63A7;&#x4EF6;&#x5728;&#x5F88;&#x591A;&#x65B9;&#x9762;&#x6BD4;&#x8F83;&#x7C7B;&#x4F3C;, &#x901A;&#x8FC7;&#x5BF9;&#x5DF2;&#x6709;&#x63A7;&#x4EF6;&#x7684;&#x6269;&#x5C55;&#x6765;&#x6EE1;&#x8DB3;&#x8981;&#x6C42;&#x3002;<br>2&#xFF09;&#x901A;&#x8FC7;&#x7EE7;&#x627F;&#x4E00;&#x4E2A;&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#x5B9E;&#x73B0;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;&#xFF0C;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x505A;&#x7EC4;&#x5408;&#x63A7;&#x4EF6;&#x65F6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#x3002;<br>&#x6CE8;&#x610F;&#x6B64;&#x65F6;&#x4E0D;&#x7528;onDraw&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x6784;&#x9020;&#x5E7F;&#x544A;&#x4E2D;&#x901A;&#x8FC7;inflater&#x52A0;&#x8F7D;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;&#x7684;&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#xFF0C;&#x518D;addView(view)&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;&#x7684;&#x56FE;&#x5F62;&#x754C;&#x9762;&#x5C31;&#x52A0;&#x8F7D;&#x8FDB;&#x6765;&#x4E86;&#x3002;<br>3&#xFF09;&#x901A;&#x8FC7;&#x7EE7;&#x627F;view&#x7C7B;&#x6765;&#x5B9E;&#x73B0;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;&#xFF0C;&#x4F7F;&#x7528;GDI&#x7ED8;&#x5236;&#x51FA;&#x7EC4;&#x4EF6;&#x754C;&#x9762;&#xFF0C;&#x4E00;&#x822C;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x4E0A;&#x8FF0;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#x65F6;&#x7528;&#x8BE5;&#x65B9;&#x5F0F;&#x3002;</p>
+<h2 id="&#x81EA;&#x5B9A;&#x4E49;View&#x589E;&#x52A0;&#x5C5E;&#x6027;"><a href="#&#x81EA;&#x5B9A;&#x4E49;View&#x589E;&#x52A0;&#x5C5E;&#x6027;" class="headerlink" title="&#x81EA;&#x5B9A;&#x4E49;View&#x589E;&#x52A0;&#x5C5E;&#x6027;"></a>&#x81EA;&#x5B9A;&#x4E49;View&#x589E;&#x52A0;&#x5C5E;&#x6027;</h2><p>1&#xFF09;&#x5728;View&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x3002;&#x901A;&#x8FC7;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x5F15;&#x5165;&#x7684;AttributeSet &#x53BB;&#x67E5;&#x627E;XML&#x5E03;&#x5C40;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x79F0;&#xFF0C;&#x7136;&#x540E;&#x627E;&#x5230;&#x5B83;&#x5BF9;&#x5E94;&#x5F15;&#x7528;&#x7684;&#x8D44;&#x6E90;ID&#x53BB;&#x627E;&#x503C;&#x3002;<br>demo&#xFF1A;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5E26;&#x6587;&#x5B57;&#x7684;&#x56FE;&#x7247;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>{</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String mtext;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> msrc;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyView</span><span class="params">(Context context)</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">        <span class="keyword">int</span> resourceId = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> textId = attrs.getAttributeResourceValue(<span class="keyword">null</span>, <span class="string">&quot;Text&quot;</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> srcId = attrs.getAttributeResourceValue(<span class="keyword">null</span>, <span class="string">&quot;Src&quot;</span>, <span class="number">0</span>);</span><br><span class="line">        mtext = context.getResources().getText(textId).toString();</span><br><span class="line">        msrc = srcId;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>{</span><br><span class="line">        Paint paint = <span class="keyword">new</span> Paint();</span><br><span class="line">        paint.setColor(Color.RED);</span><br><span class="line">        InputStream is = getResources().openRawResource(msrc); </span><br><span class="line">                Bitmap mBitmap = BitmapFactory.decodeStream(is);</span><br><span class="line">                <span class="keyword">int</span> bh = mBitmap.getHeight();</span><br><span class="line">                <span class="keyword">int</span> bw = mBitmap.getWidth();</span><br><span class="line">            canvas.drawBitmap(mBitmap, <span class="number">0</span>,<span class="number">0</span>, paint);</span><br><span class="line">        <span class="comment">//canvas.drawCircle(40, 90, 15, paint);</span></span><br><span class="line">        canvas.drawText(mtext, bw/<span class="number">2</span>, <span class="number">30</span>, paint);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    android:orientation=&quot;vertical&quot; &gt;</span><br><span class="line">    &lt;com.example.demo.MyView</span><br><span class="line">        android:id=&quot;@+id/myView1&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot; </span><br><span class="line">        Text=&quot;@string/hello_world&quot;</span><br><span class="line">        Src=&quot;@drawable/xh&quot;/&gt;</span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p>2&#xFF09;&#x901A;&#x8FC7;XML&#x4E3A;View&#x6CE8;&#x518C;&#x5C5E;&#x6027;&#x3002;&#x4E0E;Android&#x63D0;&#x4F9B;&#x7684;&#x6807;&#x51C6;&#x5C5E;&#x6027;&#x5199;&#x6CD5;&#x4E00;&#x6837;&#x3002;<br>demo:&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5E26;&#x6587;&#x5B57;&#x8BF4;&#x660E;&#x7684;ImageView(ImageView+TextView&#x7EC4;&#x5408;&#xFF0C;&#x6587;&#x5B57;&#x8BF4;&#x660E;&#xFF0C;&#x53EF;&#x5728;&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#x4E2D;&#x8BBE;&#x7F6E;&#x4F4D;&#x7F6E;)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyImageView</span> <span class="keyword">extends</span> <span class="title">LinearLayout</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyImageView</span><span class="params">(Context context)</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyImageView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">        <span class="keyword">int</span> resourceId = -<span class="number">1</span>;</span><br><span class="line">        TypedArray typedArray = context.obtainStyledAttributes(attrs,</span><br><span class="line">                R.styleable.MyImageView);</span><br><span class="line">        ImageView iv = <span class="keyword">new</span> ImageView(context);</span><br><span class="line">        TextView tv = <span class="keyword">new</span> TextView(context);</span><br><span class="line">        <span class="keyword">int</span> N = typedArray.getIndexCount();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) {</span><br><span class="line">            <span class="keyword">int</span> attr = typedArray.getIndex(i);</span><br><span class="line">            <span class="keyword">switch</span> (attr) {</span><br><span class="line">            <span class="keyword">case</span> R.styleable.MyImageView_Oriental:</span><br><span class="line">                resourceId = typedArray.getInt(</span><br><span class="line">                        R.styleable.MyImageView_Oriental, <span class="number">0</span>);</span><br><span class="line">                <span class="keyword">this</span>.setOrientation(resourceId == <span class="number">1</span> ? LinearLayout.HORIZONTAL</span><br><span class="line">                        : LinearLayout.VERTICAL);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> R.styleable.MyImageView_Text:</span><br><span class="line">                resourceId = typedArray.getResourceId(</span><br><span class="line">                        R.styleable.MyImageView_Text, <span class="number">0</span>);</span><br><span class="line">                tv.setText(resourceId &gt; <span class="number">0</span> ? typedArray.getResources().getText(</span><br><span class="line">                        resourceId) : typedArray</span><br><span class="line">                        .getString(R.styleable.MyImageView_Text));</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> R.styleable.MyImageView_Src:</span><br><span class="line">                resourceId = typedArray.getResourceId(</span><br><span class="line">                        R.styleable.MyImageView_Src, <span class="number">0</span>);</span><br><span class="line">                iv.setImageResource(resourceId &gt; <span class="number">0</span> ?resourceId:R.drawable.ic_launcher);</span><br><span class="line">                <span class="keyword">break</span>;   </span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        addView(iv);</span><br><span class="line">        addView(tv);</span><br><span class="line">        typedArray.recycle();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>attrs.xml&#x8FDB;&#x884C;&#x5C5E;&#x6027;&#x58F0;&#x660E;&#xFF0C; &#x6587;&#x4EF6;&#x653E;&#x5728;values&#x76EE;&#x5F55;&#x4E0B;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;resources&gt;</span><br><span class="line">    &lt;declare-styleable name=&quot;MyImageView&quot;&gt;</span><br><span class="line">        &lt;attr name=&quot;Text&quot; format=&quot;reference|string&quot;&gt;&lt;/attr&gt;</span><br><span class="line">        &lt;attr name=&quot;Oriental&quot; &gt;</span><br><span class="line">            &lt;enum name=&quot;Horizontal&quot; value=&quot;1&quot;&gt;&lt;/enum&gt;</span><br><span class="line">            &lt;enum name=&quot;Vertical&quot; value=&quot;0&quot;&gt;&lt;/enum&gt;</span><br><span class="line">        &lt;/attr&gt;</span><br><span class="line">        &lt;attr name=&quot;Src&quot; format=&quot;reference|integer&quot;&gt;&lt;/attr&gt;</span><br><span class="line">    &lt;/declare-styleable&gt;</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
+<p>MainActivity&#x7684;&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#xFF1A;&#x5148;&#x5B9A;&#x4E49;&#x547D;&#x540D;&#x7A7A;&#x95F4; xmlns:uview=&#x201D;<a href="http://schemas.android.com/apk/res/com.example.myimageview2" target="_blank" rel="external">http://schemas.android.com/apk/res/com.example.myimageview2</a>&#x201C; &#xFF08;com.example.myimageview2&#x4E3A;&#x4F60;<br>&#x5728;manifest&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x5305;&#x540D;&#xFF09;<br>&#x7136;&#x540E;&#x53EF;&#x4EE5;&#x50CF;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x7684;&#x5C5E;&#x6027;&#x4E00;&#x6837;&#x4F7F;&#x7528;&#xFF1A;uview:Oriental=&#x201D;Vertical&#x201D;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:uview=&quot;http://schemas.android.com/apk/res/com.example.myimageview2&quot;</span><br><span class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    android:orientation=&quot;vertical&quot;</span><br><span class="line">    tools:context=&quot;.MainActivity&quot; &gt;</span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:text=&quot;@string/hello_world&quot; /&gt;</span><br><span class="line">    &lt;com.example.myimageview2.MyImageView</span><br><span class="line">        android:id=&quot;@+id/myImageView1&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        uview:Text=&quot;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x56FE;&#x7247;&#x8BF4;&#x660E;&quot; </span><br><span class="line">        uview:Src=&quot;@drawable/tw&quot;</span><br><span class="line">        uview:Oriental=&quot;Vertical&quot;&gt;</span><br><span class="line">    &lt;/com.example.myimageview2.MyImageView&gt;</span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x81EA;&#x5B9A;&#x4E49;View&#x7684;&#x65B9;&#x6CD5;"><a href="#&#x81EA;&#x5B9A;&#x4E49;View&#x7684;&#x65B9;&#x6CD5;" class="headerlink" title="&#x81EA;&#x5B9A;&#x4E49;View&#x7684;&#x65B9;&#x6CD5;"></a>&#x81EA;&#x5B9A;&#x4E49;View&#x7684;&#x65B9;&#x6CD5;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">onFinishInflate() &#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#xFF0C;&#x5F53;&#x5E94;&#x7528;&#x4ECE;XML&#x52A0;&#x8F7D;&#x8BE5;&#x7EC4;&#x4EF6;&#x5E76;&#x7528;&#x5B83;&#x6784;&#x5EFA;&#x754C;&#x9762;&#x4E4B;&#x540E;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;</span><br><span class="line">	onMeasure() &#x68C0;&#x6D4B;View&#x7EC4;&#x4EF6;&#x53CA;&#x5176;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x5927;&#x5C0F;</span><br><span class="line">	onLayout() &#x5F53;&#x8BE5;&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x5206;&#x914D;&#x5176;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x4F4D;&#x7F6E;&#x3001;&#x5927;&#x5C0F;&#x65F6;</span><br><span class="line">	onSizeChange() &#x5F53;&#x8BE5;&#x7EC4;&#x4EF6;&#x7684;&#x5927;&#x5C0F;&#x88AB;&#x6539;&#x53D8;&#x65F6;</span><br><span class="line">	onDraw() &#x5F53;&#x7EC4;&#x4EF6;&#x5C06;&#x8981;&#x7ED8;&#x5236;&#x5B83;&#x7684;&#x5185;&#x5BB9;&#x65F6;</span><br><span class="line">	onKeyDown &#x5F53;&#x6309;&#x4E0B;&#x67D0;&#x4E2A;&#x952E;&#x76D8;&#x65F6;</span><br><span class="line">	onKeyUp  &#x5F53;&#x677E;&#x5F00;&#x67D0;&#x4E2A;&#x952E;&#x76D8;&#x65F6;</span><br><span class="line">	onTrackballEvent &#x5F53;&#x53D1;&#x751F;&#x8F68;&#x8FF9;&#x7403;&#x4E8B;&#x4EF6;&#x65F6;</span><br><span class="line">	onTouchEvent &#x5F53;&#x53D1;&#x751F;&#x89E6;&#x5C4F;&#x4E8B;&#x4EF6;&#x65F6;</span><br><span class="line">	onWindowFocusChanged(boolean)  &#x5F53;&#x8BE5;&#x7EC4;&#x4EF6;&#x5F97;&#x5230;&#x3001;&#x5931;&#x53BB;&#x7126;&#x70B9;&#x65F6;</span><br><span class="line">	onAtrrachedToWindow() &#x5F53;&#x628A;&#x8BE5;&#x7EC4;&#x4EF6;&#x653E;&#x5165;&#x5230;&#x67D0;&#x4E2A;&#x7A97;&#x53E3;&#x65F6;</span><br><span class="line">	onDetachedFromWindow() &#x5F53;&#x628A;&#x8BE5;&#x7EC4;&#x4EF6;&#x4ECE;&#x67D0;&#x4E2A;&#x7A97;&#x53E3;&#x4E0A;&#x5206;&#x79BB;&#x65F6;&#x89E6;&#x53D1;&#x7684;&#x65B9;&#x6CD5;</span><br><span class="line">	onWindowVisibilityChanged(int): &#x5F53;&#x5305;&#x542B;&#x8BE5;&#x7EC4;&#x4EF6;&#x7684;&#x7A97;&#x53E3;&#x7684;&#x53EF;&#x89C1;&#x6027;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x65F6;&#x89E6;&#x53D1;&#x7684;&#x65B9;&#x6CD5;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://raw.githubusercontent.com/wslongchen/wslongchen.github.io/master/images/wechat.JPG" alt="潘安 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://raw.githubusercontent.com/wslongchen/wslongchen.github.io/master/images/alipay2.JPG" alt="潘安 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/04/Android-UI性能优化/" rel="next" title="Android UI性能优化（渲染）">
+                <i class="fa fa-chevron-left"></i> Android UI性能优化（渲染）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/08/04/Android自定义控件浅谈/"
+     data-title="Android自定义控件浅谈"
+     data-content=""
+     data-url="http://blog.mrpann.com/2016/08/04/Android自定义控件浅谈/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/04/Android自定义控件浅谈/"
+           data-title="Android自定义控件浅谈" data-url="http://blog.mrpann.com/2016/08/04/Android自定义控件浅谈/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="潘安" />
+          <p class="site-author-name" itemprop="name">潘安</p>
+          <p class="site-description motion-element" itemprop="description">纯技术分享的站点。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#view原理"><span class="nav-number">3.</span> <span class="nav-text">view原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#view类的构造方法"><span class="nav-number">4.</span> <span class="nav-text">view类的构造方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义View增加属性"><span class="nav-number">5.</span> <span class="nav-text">自定义View增加属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义View的方法"><span class="nav-number">6.</span> <span class="nav-text">自定义View的方法</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">潘安</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mrpann"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
