@@ -94,7 +94,7 @@ xmlns:aop=&amp;quot;http://www.springframework.org/schema/aop&amp;quot">
 <meta property="og:description" content="beans xmlns=&amp;#x201C;http://www.springframework.org/schema/beans&amp;#x201D;
 xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;
 xmlns:aop=&amp;quot;http://www.springframework.org/schema/aop&amp;quot">
-<meta property="og:updated_time" content="2016-08-19T16:31:20.000Z">
+<meta property="og:updated_time" content="2016-08-19T16:32:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java spring操作数据库类">
 <meta name="twitter:description" content="beans xmlns=&amp;#x201C;http://www.springframework.org/schema/beans&amp;#x201D;
@@ -353,12 +353,19 @@ xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.
 
 <p><br>    <font face="monospace">&#x64CD;&#x4F5C;&#x7C7B;</font><br></p>
 
-<p><br>    &#xA0;<br></p>
-
-<p><br>    import java.lang.reflect.ParameterizedType;&#xA0;<br><br>    import java.lang.reflect.Type;&#xA0;<br><br>    import java.sql.SQLException;&#xA0;<br><br>    import java.util.List;&#xA0;<br><br>    import java.util.Map;&#xA0;<br><br>    import javax.annotation.Resource;&#xA0;<br><br>    import org.springframework.jdbc.core.BeanPropertyRowMapper;&#xA0;<br><br>    import org.springframework.jdbc.core.JdbcTemplate;&#xA0;<br><br>    public class DAO {&#xA0;<br></p>
-
+<p></p><p><br>    &#xA0;<br></p><p></p>
 <pre>
-<code>private JdbcTemplate jdbcTemplate;
+<code>
+    import java.lang.reflect.ParameterizedType;&#xA0;<br>
+    import java.lang.reflect.Type;&#xA0;<br>
+    import java.sql.SQLException;&#xA0;<br>
+    import java.util.List;&#xA0;<br>
+    import java.util.Map;&#xA0;<br>
+    import javax.annotation.Resource;&#xA0;<br>
+    import org.springframework.jdbc.core.BeanPropertyRowMapper;&#xA0;<br>
+    import org.springframework.jdbc.core.JdbcTemplate;&#xA0;<br>
+    public class DAO {&#xA0;
+private JdbcTemplate jdbcTemplate;
 @Resource
 public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
     this.jdbcTemplate = jdbcTemplate;

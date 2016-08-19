@@ -353,12 +353,19 @@ xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.
 
 <p><br>    <font face="monospace">&#x64CD;&#x4F5C;&#x7C7B;</font><br></p>
 
-<p><br>    &#xA0;<br></p>
-
-<p><br>    import java.lang.reflect.ParameterizedType;&#xA0;<br><br>    import java.lang.reflect.Type;&#xA0;<br><br>    import java.sql.SQLException;&#xA0;<br><br>    import java.util.List;&#xA0;<br><br>    import java.util.Map;&#xA0;<br><br>    import javax.annotation.Resource;&#xA0;<br><br>    import org.springframework.jdbc.core.BeanPropertyRowMapper;&#xA0;<br><br>    import org.springframework.jdbc.core.JdbcTemplate;&#xA0;<br><br>    public class DAO {&#xA0;<br></p>
-
+<p></p><p><br>    &#xA0;<br></p><p></p>
 <pre>
-<code>private JdbcTemplate jdbcTemplate;
+<code>
+    import java.lang.reflect.ParameterizedType;&#xA0;<br>
+    import java.lang.reflect.Type;&#xA0;<br>
+    import java.sql.SQLException;&#xA0;<br>
+    import java.util.List;&#xA0;<br>
+    import java.util.Map;&#xA0;<br>
+    import javax.annotation.Resource;&#xA0;<br>
+    import org.springframework.jdbc.core.BeanPropertyRowMapper;&#xA0;<br>
+    import org.springframework.jdbc.core.JdbcTemplate;&#xA0;<br>
+    public class DAO {&#xA0;
+private JdbcTemplate jdbcTemplate;
 @Resource
 public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
     this.jdbcTemplate = jdbcTemplate;
