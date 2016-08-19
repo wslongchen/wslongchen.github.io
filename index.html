@@ -261,6 +261,189 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/20/java-spring操作数据库类/" itemprop="url">
+                  java spring操作数据库类
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-20T00:29:31+08:00" content="2016-08-20">
+              2016-08-20
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/20/java-spring操作数据库类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/20/java-spring操作数据库类/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><br>    &lt;beans xmlns=&#x201C;<a href="http://www.springframework.org/schema/beans&amp;rdquo" target="_blank" rel="external">http://www.springframework.org/schema/beans&amp;rdquo</a>;<br></p>
+
+<pre>
+<code>xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+xmlns:jdbc=&quot;http://www.springframework.org/schema/jdbc&quot;
+xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+    http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd&quot;&gt;
+&lt;context:component-scan base-package=&quot;springmvc&quot;&gt;&lt;/context:component-scan&gt;
+&lt;context:property-placeholder location=&quot;classpath:db.properties&quot;/&gt;
+&lt;!-- &#x914D;&#x7F6E; C3P0 &#x6570;&#x636E;&#x6E90; --&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
+    &lt;property name=&quot;user&quot; value=&quot;${user}&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;password&quot; value=&quot;${password}&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;jdbcUrl&quot; value=&quot;${url}&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;driverClass&quot; value=&quot;${driver}&quot;&gt;&lt;/property&gt;
+    &lt;!--&#xA0;&#x5F53;&#x8FDE;&#x63A5;&#x6C60;&#x4E2D;&#x7684;&#x8FDE;&#x63A5;&#x7528;&#x5B8C;&#x65F6;&#xFF0C;C3P0&#x4E00;&#x6B21;&#x6027;&#x521B;&#x5EFA;&#x65B0;&#x8FDE;&#x63A5;&#x7684;&#x6570;&#x76EE;--&gt;
+    &lt;property name=&quot;acquireIncrement&quot; value=&quot;5&quot;&gt;&lt;/property&gt;
+    &lt;!--&#xA0;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x521B;&#x5EFA;&#x7684;&#x8FDE;&#x63A5;&#x6570;&#xFF0C;&#x5FC5;&#x987B;&#x5728;minPoolSize&#x548C;maxPoolSize&#x4E4B;&#x95F4;&#xA0;--&gt;
+    &lt;property name=&quot;initialPoolSize&quot; value=&quot;10&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;maxPoolSize&quot; value=&quot;20&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;minPoolSize&quot; value=&quot;5&quot;&gt;&lt;/property&gt;
+ &lt;!--&#xA0;jdbc&#x7684;&#x6807;&#x51C6;&#x53C2;&#x6570;&#xA0;&#xA0;&#x7528;&#x4EE5;&#x63A7;&#x5236;&#x6570;&#x636E;&#x6E90;&#x5185;&#x52A0;&#x8F7D;&#x7684;PreparedStatement&#x6570;&#x91CF;&#xFF0C;&#x4F46;&#x7531;&#x4E8E;&#x9884;&#x7F13;&#x5B58;&#x7684;Statement&#x5C5E;&#x4E8E;&#x5355;&#x4E2A;Connection&#x800C;&#x4E0D;&#x662F;&#x6574;&#x4E2A;&#x8FDE;&#x63A5;&#xA0;--&gt;
+    &lt;property name=&quot;maxStatements&quot; value=&quot;20&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+&lt;bean id=&quot;jdbcTemplate&quot; class=&quot;org.springframework.jdbc.core.JdbcTemplate&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+&lt;/bean&gt;
+&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;</code></pre>
+
+<p><br>    &#xA0;<br></p>
+
+<p><br>    <font face="monospace">&#x64CD;&#x4F5C;&#x7C7B;</font><br></p>
+
+<p><br>    &#xA0;<br></p>
+
+<p><br>    import java.lang.reflect.ParameterizedType;&#xA0;<br><br>    import java.lang.reflect.Type;&#xA0;<br><br>    import java.sql.SQLException;&#xA0;<br><br>    import java.util.List;&#xA0;<br><br>    import java.util.Map;&#xA0;<br><br>    import javax.annotation.Resource;&#xA0;<br><br>    import org.springframework.jdbc.core.BeanPropertyRowMapper;&#xA0;<br><br>    import org.springframework.jdbc.core.JdbcTemplate;&#xA0;<br><br>    public class DAO {&#xA0;<br></p>
+
+<pre>
+<code>private JdbcTemplate jdbcTemplate;
+@Resource
+public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+    this.jdbcTemplate = jdbcTemplate;
+}
+private Class&lt;T&gt; clazz;
+@SuppressWarnings(&quot;unchecked&quot;)
+public DAO() {
+    Type type = getClass().getGenericSuperclass();
+    if(type instanceof ParameterizedType){
+        ParameterizedType pt = (ParameterizedType) type;
+        Type [] parameterArgs = pt.getActualTypeArguments();
+        if(parameterArgs != null &amp;&amp; parameterArgs.length &gt; 0){
+            if(parameterArgs[0] instanceof Class){
+                clazz = (Class&lt;T&gt;) parameterArgs[0]; 
+            }
+        }
+    }
+}
+protected void update(String sql, Object ... args) throws SQLException{
+    jdbcTemplate.update(sql, args);
+}
+protected T get(String sql, Object ... args) throws SQLException{
+    return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper&lt;T&gt;(clazz), args);
+}
+protected List&lt;T&gt; getForList(String sql, Object ... args) throws SQLException{
+    return jdbcTemplate.query(sql, new BeanPropertyRowMapper(clazz), args);
+}
+protected &lt;E&gt; E getValue(String sql, Object ... args) throws SQLException{
+    E result = null;
+    List list = jdbcTemplate.queryForList(sql, args);
+    if(list != null &amp;&amp; list.size() &gt; 0){
+        Map map = (Map) list.get(0);
+        result = (E) map.values().iterator().next();
+    }
+    return result;
+}</code></pre>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/04/Android自定义控件浅谈/" itemprop="url">
                   Android自定义控件浅谈
                 </a>
@@ -652,110 +835,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/08/mac下安装home-brew/" itemprop="url">
-                  mac下安装home-brew
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-08T14:51:49+08:00" content="2016-07-08">
-              2016-07-08
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/08/mac下安装home-brew/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/08/mac下安装home-brew/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="&#x5B89;&#x88C5;home-brew"><a href="#&#x5B89;&#x88C5;home-brew" class="headerlink" title="&#x5B89;&#x88C5;home-brew"></a>&#x5B89;&#x88C5;home-brew</h2><p>&#x9996;&#x5148;&#x662F;&#x5B89;&#x88C5;home-brew&#xFF0C;&#x6253;&#x5F00;&#x7EC8;&#x7AEF;&#xFF0C;&#x8F93;&#x5165;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></span><br></pre></td></tr></table></figure></p>
-<p>&#x7136;&#x540E;&#x6309;&#x7167;&#x63D0;&#x793A;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#x3002;<br>&#x8F93;&#x5165;brew &#xFF0D;v&#x67E5;&#x770B;&#x7248;&#x672C;&#x4FE1;&#x606F;&#xFF0C;&#x5DF2;&#x8868;&#x793A;&#x4F60;&#x5B89;&#x88C5;&#x6210;&#x529F;&#x3002;<br></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/08/mac下安装home-brew/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -801,7 +880,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
