@@ -6,10 +6,10 @@
     <entry>
       <title><![CDATA[java spring操作数据库类]]></title>
       <url>http://blog.mrpann.com/2016/08/20/java-spring%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B1%BB/</url>
-      <content type="html"><![CDATA[<p><br>    &lt;beans xmlns=&#x201C;<a href="http://www.springframework.org/schema/beans&amp;rdquo" target="_blank" rel="external">http://www.springframework.org/schema/beans&amp;rdquo</a>;<br></p>
-
-<pre>
-<code>xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+      <content type="html"><![CDATA[<pre>
+<code>
+beans xmlns=&#x201C;http://www.springframework.org/schema/beans&#x201D;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
 xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
 xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
 xmlns:jdbc=&quot;http://www.springframework.org/schema/jdbc&quot;
