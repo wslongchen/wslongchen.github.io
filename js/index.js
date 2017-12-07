@@ -63,9 +63,14 @@ function Abridmove(Brid){
 	};	
 		}
 	//点击鼠标向上飞	
-		document.onclick=function(){
+		/*document.onclick=function(){
+				cosole.log(1111);
 				speedY=-8;
-			}
+			}*/
+	document.addEventListener("click",function(event){
+            console.log(222);
+            speedY=-8;
+        },false)
 	//点击空格向上飞
 		document.onkeydown = function(ev) {
 			var eventObj = ev || event;
