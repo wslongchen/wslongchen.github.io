@@ -69,9 +69,9 @@ function Abridmove(Brid){
 				cosole.log(1111);
 				speedY=-8;
 			}*/
-	document.addEventListener("click",function(event){
+	$("#bg").addEventListener("click",function(event){
             speedY=-8;
-        },false)
+        },false);
 	//点击空格向上飞
 		document.onkeydown = function(ev) {
 			var eventObj = ev || event;
