@@ -3,6 +3,7 @@
 	margin:0px;
 	padding:0px;
 	box-sizing:border-box;
+	text-align: center;
 }
 a{
 	text-decoration: none;
@@ -11,36 +12,39 @@ li,ul{
 	list-style: none;
 }
 #bg{
-	margin: 0px auto;
-	width: 343px;
-	height: 480px;
-	position: relative;
-	background: url(../img/bg.jpg);
-	overflow: hidden;
+
+position:fixed;
+top:0;
+left:0;
+bottom:0;
+right:0;
 }
-#BG{
-	position: absolute;
-	width: 343px;
-	height: 480px;
-}
-#start{
-	width: 343px;
-	padding-top: 100px;
+.ig{
+	height:100%;
+width:100%;
+border:0;
 }
 #log{
-	width: 343px;
-	height: 77px;
 	position: absolute;
+    top: 55%;
+    width: 343px;
+	height: 77px;
 }
 .logo{
 	width: 236px;
 	height: 77px;
-	background: url(../img/head.png);
+	background: url(../img/head.png) ;
 }
 .bird{
 	width: 40px;
 	height: 30px;
 	background: url(../img/bird0.png) no-repeat;
+	margin-right: 10%;
+}
+#start{
+	width: 100%;
+	position: absolute;
+	bottom: 50%;
 }
 #log li{
 	float:left;
@@ -51,8 +55,9 @@ li,ul{
 	border:none;
 	background: url(../img/start.jpg) no-repeat;
 	position: absolute;
-	top: 330px;
-	left: 130px;
+	top:8em;
+	 left: 50%;
+  transform: translateX(-50%);
 }
 #banner li{
 		width: 343px;
@@ -64,7 +69,7 @@ li,ul{
 #banner{
 	width: 686px;
 	position: absolute;
-	top: 423px;
+	bottom: 8%;
 }
 .Brid{
 	width: 40px;
@@ -83,53 +88,74 @@ li,ul{
 	width: 62px;
 }
 #gameover{
-	position: absolute;
-	margin: 70px 30px;
-	z-index: 3;
+	position:relative;
+	display: none;
+	bottom: 70%;
+	 left: 50%;
+  transform: translateX(-50%);
 }
 .gameover{
 	width: 269px;
 	height: 135px;
 	background:url(../img/message.jpg) no-repeat;
-	margin-top: 20px;	
+	margin-top: 60px;
+	position: absolute;
+	left: 50%;
+    transform: translateX(-50%);
 }
 .HistoryNumber{
 	position: absolute;
 	width: 53px;
 	height: 37px;
-	bottom: 63px;
+	bottom: 13px;
 	right: 0px;
 	margin-right: 28px;
 	line-height: 37px;
 	text-align: center;
 	font-size: 40px;
 }
-.gameover span{
-	float: right;
+.gameover .number{
+	position: absolute;
 	width: 53px;
 	height: 37px;
-	margin-top: 33px;
+	bottom: 66px;
+	right: 0px;
 	margin-right: 28px;
 	line-height: 37px;
 	text-align: center;
 	font-size: 40px;
+	
 }
 .over{
 	width: 221px;
 	height: 40px;
 	background:url(../img/game_over.png) no-repeat;
+	position: absolute;
+    top: -100%;
+      left: 50%;
+    transform: translateX(-50%);
+}
 }
 .ok{
-	background:url(../img/ok.jpg) no-repeat;
 	width: 96px;
-	margin:10px auto;
 	height: 33px;
+	position: relative;
+	text-align: center;
+}
+.ok_img{
+	text-align: center;
+	position: absolute;
+	top: 220px;
+	 left: 50%;
+    transform: translateX(-50%);
 }
 #bigScore{
 	position: absolute;
 	z-index: 3;
-	width: 343px;
+	width: 100%;
 	text-align: center;
 	margin:0px auto;
-	height:39px; 
+	height:39px;
+	display: none;
+	top:0;
 }
