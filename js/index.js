@@ -57,8 +57,10 @@ function Abridmove(Brid){
 		if(imgindex==2){
 			imgindex=0;
 				};	
+
+	var height = $("#banner").offsetTop - Brid.offsetHeight/4;
 	//判断碰撞
-	if (Brid.offsetTop+Brid.offsetHeight>=422||Brid.offsetTop<0){
+	if (Brid.offsetTop+Brid.offsetHeight>=height ||Brid.offsetTop<0){
 		Gameover();
 	};	
 		}
@@ -68,7 +70,6 @@ function Abridmove(Brid){
 				speedY=-8;
 			}*/
 	document.addEventListener("click",function(event){
-            console.log(222);
             speedY=-8;
         },false)
 	//点击空格向上飞

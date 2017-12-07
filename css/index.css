@@ -26,8 +26,8 @@ border:0;
 }
 #log{
 	position: absolute;
-    top: 55%;
-    width: 343px;
+    	top: 55%;
+    	width: 343px;
 	height: 77px;
 }
 .logo{
@@ -69,7 +69,7 @@ border:0;
 #banner{
 	width: 686px;
 	position: absolute;
-	bottom: 8%;
+	bottom: 9.6%;
 }
 .Brid{
 	width: 40px;
