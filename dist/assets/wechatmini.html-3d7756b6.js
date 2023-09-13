@@ -1,0 +1,4 @@
+const data = JSON.parse('{"key":"v-7edba8b3","path":"/docs/labrador/wechatmini.html","title":"微信小程序","lang":"en-US","frontmatter":{"title":"微信小程序","date":"2023/09/10"},"headers":[{"level":2,"title":"微信小程序","slug":"微信小程序","link":"#微信小程序","children":[{"level":3,"title":"codesssion","slug":"codesssion","link":"#codesssion","children":[]},{"level":3,"title":"codesssion","slug":"codesssion-1","link":"#codesssion-1","children":[]},{"level":3,"title":"二维码","slug":"二维码","link":"#二维码","children":[]},{"level":3,"title":"用户","slug":"用户","link":"#用户","children":[]},{"level":3,"title":"媒体","slug":"媒体","link":"#媒体","children":[]},{"level":3,"title":"更多请关注框架内容","slug":"更多请关注框架内容","link":"#更多请关注框架内容","children":[]}]}],"git":{"createdTime":null,"updatedTime":null,"contributors":[]},"filePathRelative":"docs/labrador/wechatmini.md"}');
+export {
+  data
+};
