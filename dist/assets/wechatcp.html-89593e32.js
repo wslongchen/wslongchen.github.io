@@ -1,4 +1,0 @@
-const data = JSON.parse('{"key":"v-14dd9e9d","path":"/docs/labrador/wechatcp.html","title":"企业微信","lang":"en-US","frontmatter":{"title":"企业微信","date":"2023/09/10"},"headers":[{"level":2,"title":"企业微信","slug":"企业微信","link":"#企业微信","children":[{"level":3,"title":"code_session","slug":"code-session","link":"#code-session","children":[]},{"level":3,"title":"媒体","slug":"媒体","link":"#媒体","children":[]},{"level":3,"title":"自建应用","slug":"自建应用","link":"#自建应用","children":[]},{"level":3,"title":"部门","slug":"部门","link":"#部门","children":[]},{"level":3,"title":"外部联系人","slug":"外部联系人","link":"#外部联系人","children":[]},{"level":3,"title":"群机器人","slug":"群机器人","link":"#群机器人","children":[]},{"level":3,"title":"标签","slug":"标签","link":"#标签","children":[]},{"level":3,"title":"更多请关注框架内容","slug":"更多请关注框架内容","link":"#更多请关注框架内容","children":[]}]}],"git":{"createdTime":null,"updatedTime":null,"contributors":[]},"filePathRelative":"docs/labrador/wechatcp.md"}');
-export {
-  data
-};

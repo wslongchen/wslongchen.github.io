@@ -1,4 +1,0 @@
-const data = JSON.parse('{"key":"v-25dbef27","path":"/docs/labrador/wechatmp.html","title":"微信公众号","lang":"en-US","frontmatter":{"title":"微信公众号","date":"2023/09/10"},"headers":[{"level":2,"title":"微信公众号","slug":"微信公众号","link":"#微信公众号","children":[{"level":3,"title":"Oauth2授权","slug":"oauth2授权","link":"#oauth2授权","children":[]},{"level":3,"title":"微信用户","slug":"微信用户","link":"#微信用户","children":[]},{"level":3,"title":"二维码","slug":"二维码","link":"#二维码","children":[]},{"level":3,"title":"模板消息","slug":"模板消息","link":"#模板消息","children":[]},{"level":3,"title":"菜单","slug":"菜单","link":"#菜单","children":[]},{"level":3,"title":"订阅消息","slug":"订阅消息","link":"#订阅消息","children":[]},{"level":3,"title":"WIFI","slug":"wifi","link":"#wifi","children":[]},{"level":3,"title":"更多请关注框架内容","slug":"更多请关注框架内容","link":"#更多请关注框架内容","children":[]}]}],"git":{"createdTime":null,"updatedTime":null,"contributors":[]},"filePathRelative":"docs/labrador/wechatmp.md"}');
-export {
-  data
-};
